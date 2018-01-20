@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Wit trainer</title>
+    <link rel="stylesheet" href="../static/css/wit_trainer.css">
+  </head>
+  <body>
+    <div class="container center">
+      <h1>Select an intent and enter sentences to train</h1>
+      <!-- <form class="wit_form" action="localhost:8080/post_to_wit" method="POST"> -->
+        <form class="wit_form" action="/post_to_wit" method="POST">
+        <select class="button center" name="intents">
+          {% for intent in intents %}
+            <option value={{intent}}>{{intent}}</option>
+          {% endfor%}
+        </select>
+        <br>
+        <textarea class="center" name = "train_text"></textarea>
+        <br>
+        <input class="button center" type="submit">
+      </form>
+    </div>
+</body>
+</html>
