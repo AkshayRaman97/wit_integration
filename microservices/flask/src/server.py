@@ -6,6 +6,7 @@ import json
 
 URL = "https://api.wit.ai/samples"
 AUTH = "Bearer UBNZIAOJ75A35H5SRC3MQUON7VX2EDXM"
+intents = ['Greeting','Question','Command','Statement']
 
 @app.route("/")
 def home():
@@ -17,8 +18,7 @@ def get_intent():
 
 @app.route("/train_wit",methods = ['GET'])
 def train_wit():
-    intents = ['Greeting','Question','Command','Statement']
-    return render_template("wit_trainer.html",intents=intents)
+    return render_template("wit_trainer.html",intents=intents,message=None)
 
 @app.route("/post_to_wit",methods=['POST'])
 def post_to_wit():
@@ -31,8 +31,8 @@ def post_to_wit():
     # print(json.dumps(request_list))
     headers={"Authorization":AUTH,"Content-Type":"application/json"}
     response = requests.post(URL,json.dumps(request_list),headers=headers)
-    if(response.status_code==200):
+    status = response.status_code
+    if(status==200):
         print(response.json())
-        return redirect('/train_wit')
-    else:
-        return "Submission failed! :("
+        return render_template("wit_trainer.html",intents=intents,status=status,message=str(response.json()["n"]) + " submissions successful! Thanks for your contribution ")
+    return render_template("wit_trainer.html",intents=intents,status=status,message="Submission failed ! something went wrong")
