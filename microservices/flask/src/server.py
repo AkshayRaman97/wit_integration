@@ -35,6 +35,7 @@ def post_to_wit():
         content = request.form.get("train_text").strip().split("\r\n")
         intent = request.form.get("intents")
         request_list = []
+        status = 500;
         for line in content:
             text,key_word = line.split(";")
             start = text.index(key_word)
