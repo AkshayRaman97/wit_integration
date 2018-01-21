@@ -1,206 +1,94 @@
-Hey
-Hey man
-Hi
-Hello there
-Hey therecl
-Hello
-Good to see you
-Nice to see you
-Long time no see
-It’s been a while
-Good morning
-Have a good day
-Good afternoon
-Good evening
-It’s nice to meet you
-Pleased to meet you
+Hey;Hey
+Hey man;Hey
+Hi;Hi
+Hello there;Hello
+Hey there;Hey
+Hello;Hello
+Good to see you;Good to see
+Nice to see you;Nice to see
+Good morning;Good morning
+Have a good day;Have a good
+Good afternoon;Good afternoon
+Good evening;Good evening
+It’s nice to meet you;nice to meet
+Pleased to meet you;Pleased to meet
 
-He runs
-She sings
-I like climbing
-Fran is sad
-My cat is black
-Dogs are cute
-He is eight years old
-The sky is blue
-He loves pizza
-The car is white
-Ice is cold
-She leaves for college tomorrow morning
-The weather is warm and sunny
-a perfect day for a picnic
-She wears red nail polish
-The room smells clean
-I love my cat
-My family is driving to the beach for the long weekend
-The airplane flew over the gleaming ocean
-She is my friend
-His shoes were brand new, and now they are missing
-The dog chased the boy
-It is a nice day
-Her sister is sick
-therefore, she is not at school today
-The grass is green after the rain
-She loves the mountains
-he hates the long drive
-My new dress is black and white
-My brother loves to run, but my sister prefers to walk
-My phone is missing
-The teacher is going on a well-earned vacation
-Her coat is ripped
-The baby is hungry
-she is eagerly drinking a bottle of milk
+How do you go to work every day?;How
+How old are you?;How
+How tall are you?;How
+How can I buy a ticket?;How
+How do you feel this afternoon?;How
+How is your stomach?;How
+How are your parents doing?;How
+How is your new job going?;How
+How often do you go to the movies?;How
+How do you like your job?;How
+How are you feeling today?;How
+How is the weather today?;How
+How fast can you run?;How
+How often do you study English?;How
 
-Has anyone seen my torch?
-What's the capital of Peru?
-Shall we ask Simon or Jonesy?
-Is this your book?
-Did you receive my message?
-Have you found a new job yet?
-Where are the brownies?
-Have you brushed your teeth yet?
-Was Margret accused of cheating?
-Does he have his dinner at seven every evening?
-Did Emma eat the last doughnut?
-Is it useless to cry over spilt milk?
-Is it not useless to cry over spilt milk?
-Did the chicken cross the road?
-Did I tell him to practice regularly?
-Did I not tell him to practice regularly?
-Can Wilma play the saxophone?
-Can you understand why I'm upset?
-Could Gulliver hear his watch ticking in his pocket?
-Is there a doctor in the house?
-Are the geese returning early this year?
-Does anyone worship the setting sun?
-Do your parents try to cheer you up when you're sad?
-Did Doras choose the most expensive items on the menu?
-Has everybody heard of Darwin?
-Hasn’t everybody heard of Darwin?
-Will you take steps to correct this problem?
-Did the doctor tell us to add cereal to the baby's formula?
-Is there anything particularly impressive about this picture?
-Do Lean’s teachers understand why she's sleepy all the time?
-Is Switzerland known for its scenic beauty?
-Is not Switzerland known for its scenic beauty?
-Does Jonathan know how to serve his customers effectively and efficiently?
-Are the prices in our cafeteria reasonable?
-Is not virtue its own reward?
-Will he drive the children to swimming practice?
-Were all the managers taught how to use the new software?
-Have we received a pay raise this year?
-Is basketball David's favorite sport?
-Did the repairs to the car cost more than the car was worth?
-Did Sarah buy a present for the party?
-Was it a great sight? OR Was it not a great sight?
+What is your name?;What
+What can you do well?;What
+Where are you from?;Where
+Where will you go tomorrow?;Where
+When did you wake up this morning?;When
+When is your birthday?;When
+Who is your favorite singer?;Who
+Who will come with us?;Who
+Why are you studying English now?;Why
+Why were they so happy?;Why
+What do you like to do in your free time?;What
+What will you eat for dinner tonight?;What
+Where do you buy fruits and vegetables?;Where
+Where is the best place to visit in winter?;Where
+Who was your favorite teacher in school?;Who
+Who is the most popular singer in your country?;Who
+When was your last vacation?;When
+When do you prefer to study, in the morning or in the evening?;When
+Why are you sleeping so late?;Why
+Why are you walking to your school?;Why
+What is the most exciting movie you have ever seen?;What
+When is the coldest weather in your hometown?;When
+Where do you like to go on a warm summer's day?;Where
+Who do you like to talk to when you have a problem?;Who
+Why do you want to learn English?;Why
 
-Attend the meeting
-Discharge your duty
-Enforce the law
-Quash the previous order
-Return to work
-Vacate this place
-Climb the stair
-Fill out this form
-Go on foot
-Hang a painting
-Light a candle
-Note this down
-Open up the cage
-Push a trolley
-Spell it out
-Tie your shoe laces
-Unpack the luggage
-Book a hotel room
-Improve your appearance
-Mend your ways
-Walk elegantly
-Follow your dream
-Keep up your English
-Come to the party with me
-Have a meal with us
-Let’s stay in my house
-Be Silent
-Let’s curb the menace of drugs addiction
-Give me five hundred dollars, please
-Come soon, please
-Abide by the commission’s verdict
-Accept his decision
-Achieve your target
-Acknowledge achievements of women
-Acquire land for road infrastructure
-Act quickly
-Act swiftly
-Add details to this report
-Address a press conference
-Address his concerns regarding payments next week
-Address their demands
-Adhere to dos and don’ts of the pilgrimage
-Adhere to the standard operating procedure
-Adjust the rules to help consumers
-Adjust to a new location
-Admire your parents
-Adopt ‘do it right’ approach
-Adopt a good strategy in choosing right candidates
-Adopt long-term vision for industry
-Adopt modern technology
-Adopt wait and watch policy
-Adopt zero tolerance against underage driving
-Aim it
-Airlift the injured to the state capital for treatment
-Allow her to explain herself completely without interrupting her
-Allow him to return home
-Alter the course of your life
-Amend the act
-Analyze the reasons for your defeat
-Analyze the sample
-Announce a compensation for the victim’s family
-Announce your candidacy
-Answer the question
-Anticipate rate hikes
-Apologize if you hurt someone
-Apply band aid
-Apply ointment
-Apply colours on his forehead
-Apply for a job
-Apply for marks verification
-Apply for passport
-Appoint a manager
-Appreciate compassionate behaviour
-Approach him for help
-Approach the court
-Approve the plan
-Arrange everything before it is late
-Arrange for cash to meet your expenses
-Arrange funds from your relatives
-Arrange funds on your own
-Arrive early on the scene
-Ask for a receipt
-Ask for more information
-Ask him his name
-Ask him what had happened
-Ask politely
-Ask the right questions
-Assert your independence
-Assess the reasons which led to your defeat
-Assess the results of the strike
-Assign duties to workers
-Associate with the best
-Attend the meeting
-Attract new customers
-Avert confrontation between the tigers and villagers
-Avoid close contact with people who are sick
-Avoid cold and very hot items
-Avoid crisis
-Avoid deserted areas
-Avoid eating or drinking any food or water that may be contaminated
-Avoid letting the water run while brushing your teeth
-Avoid overuse of modern technology
-Avoid processed foods
-Avoid sweetened drinks
-Avoid swimming during inclement weather conditions
-Avoid the traffic
-Avoid tobacco
-Avoid unsafe food items
-Avoid visiting forest areas
-Avoid walking or driving through flood waters
+it must have been humbug;must
+That must be very interesting;must
+I must get away this very day;must
+It must have been quite an exciting time to be alive;must
+She must die;must
+You must have given my message wrong;must
+you must keep it away from me, for the smell is very tempting;must
+This is what you must do;must
+We must cease raving if we are sons of our Fatherland!;must
+Eight quires, like this sample, gilt- edged... it must be exactly like the sample;must
+The city was far away, and the slaves must walk the whole distance;must
+You know some decision must be come to;must
+Do you mean my kitten must be put in a grave?;must
+Dorothy must take her parasol and open it suddenly when the wooden folks attack her;must
+I must ask someone who knows;must
+Now you must feed me, Dorothy, for I'm half starved;must
+I tell her she must go;must
+I must make up for that in Moscow;must
+But you must remember I'm old, and my dashing days are past and gone;must
+He must stand there until he sees some one else whisper;must
+You must take to the river;must
+So you must be careful not to spend these foolishly;must
+The odds must be astronomical;must
+You must either jump overboard into the sea or be slain with your own sword;must
+
+She should wash them;should
+Connie should be here any minute;should
+It should be ready now;should
+Maybe we should go home;should
+I should have been with them tonight;should
+Maybe you're the one I should be careful about;should
+I should have been checking it;should
+I should have anticipated this;should
+We should be encouraging things like this;should
+She should discuss all this with Alex;should
+You should get some rest;should
+She should probably listen to her gut feeling about this;should
+He gives you the respect a father should have;should

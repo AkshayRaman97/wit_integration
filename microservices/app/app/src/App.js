@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import Header from './Header';
+import Intro from './Intro';
+import Wit from './Wit';
+
 import './App.css';
 
-const styles = {
-  AppStyle : {
-
-  }
-}
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header heading="Wit.ai" />
+        <Header>
+          Wit.ai
+        </Header>
+        <Intro>
+          This is a sample wit integration , it simply gets user input and displays the intent of the text
+        </Intro>
+        <Wit />
       </div>
     );
   }

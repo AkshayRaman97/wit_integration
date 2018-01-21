@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
-
-const styles = {
-  HeaderStyle : {
-    fontSize : 44,
-    color : 'green',
-  }
-}
+import './index.css';
 
 class Header extends Component {
   render() {
     return (
-      <div className="Header" style={styles.HeaderStyle}>
-        {this.props.heading}
+      <div className="Header">
+        {this.props.children}
       </div>
     );
   }

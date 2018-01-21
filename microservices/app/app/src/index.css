@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Lato');
+
+
+body {
+  padding: 20px;
+  background-color: #c1fcc1;
+}
+.Header {
+  font-size : 64px;
+  color : black;
+  font-family: 'Raleway', sans-serif;
+  width: fit-content;
+  padding: 15px;
+  background-color: #fdf7ef;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+.Intro {
+  text-align: center;
+  margin: 15px auto;
+  width: 60%;
+  padding: 10px;
+  font-size: 36px;
+  font-family: 'Raleway',sans-serif;
+  font-weight: 400;
+}
+.center {
+  display: block;
+  margin: auto;
+}
+.text-input {
+  text-align: center;
+  margin: 30px auto;
+  height: 55px;
+  width: 700px;
+  padding: 30px;
+  font-size: 40px;
+  font-family: 'Raleway' ,sans-serif;
+  font-weight: 400;
+}
+.WitForm > input:focus {
+  border-color: 1px solid black;
+}
+@media screen and (max-width: 768px){
+    /* For mobile phones: */
+    .Header{
+        font-size: 42px;
+        margin : auto;
+    }
+    .Intro {
+      font-size: 22px;
+      width: 95%;
+    }
+    .text-input {
+      height : 40px;
+      font-size: 26px;
+      width: 80%;
+      padding: 10px;
+    }
+}
