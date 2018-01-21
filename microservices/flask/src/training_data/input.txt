@@ -27,7 +27,8 @@ He loves pizza
 The car is white
 Ice is cold
 She leaves for college tomorrow morning
-The weather is warm and sunny; a perfect day for a picnic
+The weather is warm and sunny
+a perfect day for a picnic
 She wears red nail polish
 The room smells clean
 I love my cat
@@ -37,15 +38,18 @@ She is my friend
 His shoes were brand new, and now they are missing
 The dog chased the boy
 It is a nice day
-Her sister is sick; therefore, she is not at school today
+Her sister is sick
+therefore, she is not at school today
 The grass is green after the rain
-She loves the mountains; he hates the long drive
+She loves the mountains
+he hates the long drive
 My new dress is black and white
 My brother loves to run, but my sister prefers to walk
 My phone is missing
 The teacher is going on a well-earned vacation
 Her coat is ripped
-The baby is hungry; she is eagerly drinking a bottle of milk
+The baby is hungry
+she is eagerly drinking a bottle of milk
 
 Has anyone seen my torch?
 What's the capital of Peru?

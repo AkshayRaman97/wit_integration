@@ -3,9 +3,11 @@ from flask import render_template,request
 from flask import jsonify,redirect
 import requests
 import json
+from wit import Wit
 
 URL = "https://api.wit.ai/samples"
-AUTH = "Bearer UBNZIAOJ75A35H5SRC3MQUON7VX2EDXM"
+AUTH = "UBNZIAOJ75A35H5SRC3MQUON7VX2EDXM"
+client = Wit(AUTH)
 intents = ['Greeting','Question','Command','Statement']
 
 @app.route("/")
@@ -14,7 +16,10 @@ def home():
 
 @app.route("/get_intent",methods = ['POST'])
 def get_intent():
-    return "Nothing yet"
+    text = request.form.get("text").strip()
+    response = client.message(text)
+    print(response.json())
+    return "LOL"
 
 @app.route("/train_wit",methods = ['GET'])
 def train_wit():
@@ -29,7 +34,7 @@ def post_to_wit():
         data = {"text": line,"entities": [{"entity": "intent","value": intent}]}
         request_list.append(data)
     # print(json.dumps(request_list))
-    headers={"Authorization":AUTH,"Content-Type":"application/json"}
+    headers={"Authorization":"Bearer "+AUTH,"Content-Type":"application/json"}
     response = requests.post(URL,json.dumps(request_list),headers=headers)
     status = response.status_code
     if(status==200):
