@@ -16,7 +16,8 @@ def home():
 
 @app.route("/get_intent",methods = ['POST'])
 def get_intent():
-    text = request.form.get("text").strip()
+    text = request.get_json()['text']
+    print(text)
     response = client.message(text)
     try:
         return(response['entities']['intent'][0]['value'])
