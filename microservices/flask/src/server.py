@@ -20,11 +20,11 @@ def get_intent():
     print(text)
     response = client.message(text)
     try:
-        return(response['entities']['intent'][0]['value'])
+        return(jsonify({"intent":response['entities']['intent'][0]['value']}))
     except KeyError:
-        return "Couldn't find one"
+        return jsonify({"intent":"Couldn't find one"})
     else:
-        return "Some error occured"
+        return jsonify({"error":"Some error occured"})
 
 @app.route("/train_wit",methods = ['GET'])
 def train_wit():
