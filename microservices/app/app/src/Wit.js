@@ -4,38 +4,40 @@ import './index.css';
 class Wit extends React.Component {
   constructor(props){
     super(props)
-    this.state = {text:""};
+    this.state = {text:"",intent:null};
   }
   handleTextChange(e){
     this.setState({text:e.target.value})
   }
   changeOutput(e){
     e.preventDefault();
+    this.setState({intent:null})
     var output;
-    // console.log(JSON.stringify({text:this.state.text}));
-    fetch('https://flask.bouquet44.hasura-app.io/get_intent', {
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({text:this.state.text})
-  }).then(response => {
-    response.json().then(function(data) {
-      output = data.response;
-      return output;
-     }).then((output) => {
-       this.setState({intent:output});
-     });
-  }).catch(err => {
-    console.error(err);
-  });
+    if(this.state.text.length){
+      fetch('https://flask.bouquet44.hasura-app.io/get_intent', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({text:this.state.text})
+    }).then(response => {
+      response.json().then(function(data) {
+        output = data.response;
+        return output;
+       }).then((output) => {
+         this.setState({intent:output});
+       });
+    }).catch(err => {
+      console.error(err);
+    });
+  }
 }
 showOutput() {
     if(this.state.intent){
       return(
         <div className="center outputbox">
-          <b>Intent</b> {this.state.intent}
+          <b className="bold">Intent</b> {this.state.intent}
         </div>
       );
     }

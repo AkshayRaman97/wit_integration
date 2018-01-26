@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway|Lato');
+@import url('https://fonts.googleapis.com/css?family=Raleway|Lato|Montserrat');
 
 
 body {
   padding: 20px;
   background-color: #c1fcc1;
+  background-color: #ccccff;
 }
 .Header {
   font-size : 64px;
@@ -26,34 +27,54 @@ body {
 .center {
   display: block;
   margin: auto;
+}.WitForm {
+  height: 240px;
 }
 .text-input {
   text-align: center;
   margin: 30px auto;
   height: 55px;
   width: 700px;
-  padding: 30px;
+  padding: 30px 10px 10px 10px;
   font-size: 40px;
   font-family: 'Raleway' ,sans-serif;
   font-weight: 400;
+  background-color: inherit;
+  border-width: 0px 0px 2px 0px;
+  border-color: gray;
 }
-.WitForm > input:focus {
-  border-color: 2px solid black;
+.text-input:focus {
+  outline: none;
+  border-color: black;
+  transition: all 0.5s ease-in-out;
 }
+
 .button {
+  color : white;
   padding: 15px 45px;
-  background-color: transparent;
-  border : 3px solid #f6f6f6;
-  border-radius: 7px;
+  background-color: #6666ff;
+  border-radius: 500px;
   font-size: 28px;
-  font-family: 'Lato' sans-serif;
+  font-family: 'Montserrat' ,sans-serif;
+  border : 0px;
+  margin: 10px auto 0px auto;
+  transition : all 0.3s ease;
 }
 .button:hover {
-  background-color: black;
-  color: #c1fcc1;
-  border-color: #c1fcc1;
-  transition : all 0.2s ease-in;
+  background-color: #5151cc;
+  margin: 0px auto 10px auto;
+  transition : all 0.3s ease;
 }
+.outputbox {
+  width: fit-content;
+  margin-top : 45px;
+}
+.outputbox {
+  font-family: 'Raleway', sans-serif;
+  font-size: 34px;
+  transition: all 1s ease;
+}
+
 @media screen and (max-width: 768px){
     /* For mobile phones: */
     .Header{
@@ -63,6 +84,10 @@ body {
     .Intro {
       font-size: 22px;
       width: 95%;
+      margin-top: 40px;
+    }
+    .WitForm {
+      height: 200px;
     }
     .text-input {
       height : 40px;
@@ -70,12 +95,13 @@ body {
       width: 80%;
       padding: 10px;
     }
-}
-.outputbox {
-  width: fit-content;
-  margin-top : 45px;
-}
-.outputbox {
-  font-family: 'Raleway', sans-serif;
-  font-size: 34px;
+    .button {
+      font-size: 26px;
+    }
+    .outputbox {
+      font-size: 26px;
+    }
+    .bold {
+      background-color: gray;
+    }
 }
