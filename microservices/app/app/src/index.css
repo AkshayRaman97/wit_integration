@@ -68,8 +68,6 @@ body {
 .outputbox {
   width: fit-content;
   margin-top : 45px;
-}
-.outputbox {
   font-family: 'Raleway', sans-serif;
   font-size: 34px;
   transition: all 1s ease;
