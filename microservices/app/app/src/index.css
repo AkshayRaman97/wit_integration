@@ -38,7 +38,21 @@ body {
   font-weight: 400;
 }
 .WitForm > input:focus {
-  border-color: 1px solid black;
+  border-color: 2px solid black;
+}
+.button {
+  padding: 15px 45px;
+  background-color: transparent;
+  border : 3px solid #f6f6f6;
+  border-radius: 7px;
+  font-size: 28px;
+  font-family: 'Lato' sans-serif;
+}
+.button:hover {
+  background-color: black;
+  color: #c1fcc1;
+  border-color: #c1fcc1;
+  transition : all 0.2s ease-in;
 }
 @media screen and (max-width: 768px){
     /* For mobile phones: */
@@ -56,4 +70,12 @@ body {
       width: 80%;
       padding: 10px;
     }
+}
+.outputbox {
+  width: fit-content;
+  margin-top : 45px;
+}
+.outputbox {
+  font-family: 'Raleway', sans-serif;
+  font-size: 34px;
 }

@@ -4,7 +4,7 @@ import './index.css';
 class Intro extends React.Component {
   render(){
     return(
-      <div class="Intro">
+      <div className="Intro">
         {this.props.children}
       </div>
     );
