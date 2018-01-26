@@ -22,7 +22,7 @@ class Wit extends React.Component {
     body: JSON.stringify({text:this.state.text})
   }).then(response => {
     response.json().then(function(data) {
-      output = data.intent;
+      output = data.response;
       return output;
      }).then((output) => {
        this.setState({intent:output});
