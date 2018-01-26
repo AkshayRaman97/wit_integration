@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Raleway|Ubuntu');
 
 .center {
   display: block;
@@ -22,7 +22,7 @@ textarea {
   font-size: 24px;
   line-height: 35px;
   padding: 25px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Raleway', sans-serif;
   border-left: 10px solid #23282D;
 }
 textarea:focus {
@@ -33,9 +33,11 @@ textarea:focus {
 .button {
   background-color: white;
   padding: 15px;
+  letter-spacing: 1.2px;
   font-size: 20px;
   border: 3px solid #23282D;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-weight: normal;
 }
 .button:focus {
   outline: none !important;
@@ -57,14 +59,32 @@ textarea:focus {
 .success {
     background-color: rgba(142,235,143,0.9);
 }
-
+p {
+  text-align: center;
+  font-family: 'Raleway',sans-serif;
+}
 @media screen and (max-width: 768px){
     /* For mobile phones: */
     .container {
       width: 90%;
     }
+
+    h1 {
+      font-size: 28px;
+    }
+    p {
+      font-size: 16px;
+    }
+    textarea {
+      font-size: 18px;
+      line-height: 28px;
+    }
     textarea {
         width: 80%;
-        height: 70vh;
+        height: 40vh;
+    }
+    .button {
+      font-size: 16px;
+      padding: 10px;
     }
 }
