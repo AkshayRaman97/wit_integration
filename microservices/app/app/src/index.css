@@ -77,11 +77,11 @@ body {
 @media screen and (max-width: 768px){
     /* For mobile phones: */
     .Header{
-        font-size: 42px;
+        font-size: 36px;
         margin : auto;
     }
     .Intro {
-      font-size: 22px;
+      font-size: 18px;
       width: 95%;
       margin-top: 40px;
     }
@@ -95,10 +95,10 @@ body {
       padding: 10px;
     }
     .button {
-      font-size: 26px;
+      font-size: 20px;
     }
     .outputbox {
-      font-size: 26px;
+      font-size: 22px;
     }
     .bold {
       background-color: gray;
