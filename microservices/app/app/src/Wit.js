@@ -37,7 +37,7 @@ showOutput() {
     if(this.state.intent){
       return(
         <div className="center outputbox">
-          <b className="bold">Intent</b> {this.state.intent}
+          <b className="bold"> &nbsp;&nbsp; Intent &nbsp;&nbsp;</b> &nbsp;&nbsp;{this.state.intent}
         </div>
       );
     }

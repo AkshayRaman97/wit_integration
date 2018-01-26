@@ -73,7 +73,9 @@ body {
   font-size: 34px;
   transition: all 0.25s ease-in-out;
 }
-
+.bold {
+  background-color: #a8a8a8;
+}
 @media screen and (max-width: 768px){
     /* For mobile phones: */
     .Header{
@@ -83,7 +85,7 @@ body {
     .Intro {
       font-size: 18px;
       width: 95%;
-      margin-top: 40px;
+      margin-top: 30px;
     }
     .WitForm {
       height: 200px;
@@ -93,14 +95,13 @@ body {
       font-size: 26px;
       width: 80%;
       padding: 10px;
+      margin: 20px auto;
     }
     .button {
-      font-size: 20px;
+      font-size: 16px;
     }
     .outputbox {
-      font-size: 22px;
-    }
-    .bold {
-      background-color: gray;
+      font-size: 20px;
+      margin-top: 10px;
     }
 }
