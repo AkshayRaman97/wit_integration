@@ -1,2 +1,3 @@
 .hasura
 microservices/app/app/node_modules
+microservices/flask/src/training_data

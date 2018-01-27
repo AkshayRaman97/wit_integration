@@ -48,11 +48,15 @@ showOutput() {
       );
     }
 }
+showPlaceholder(){
+  var text_list = ["Hello","Have a good day","What is this?","How does wit work?","You must do your duty","Maybe there's a better way"];
+  return text_list[Math.floor(Math.random() * Math.floor(text_list.length))];
+}
   render(){
     return(
       <div className="Wit">
         <form className="WitForm" onSubmit={this.changeOutput.bind(this)}>
-          <input className="text-input center" type="text" value={this.state.text} onChange={this.handleTextChange.bind(this)}/>
+          <input className="text-input center" placeholder={this.showPlaceholder()} type="text" value={this.state.text} onChange={this.handleTextChange.bind(this)}/>
           <br />
           <input className="button center" type="submit" value="Submit" />
         </form>
