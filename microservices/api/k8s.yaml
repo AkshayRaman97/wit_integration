@@ -5,9 +5,9 @@ items:
   metadata:
     creationTimestamp: null
     labels:
-      app: flask
+      app: api
       hasuraService: custom
-    name: flask
+    name: api
     namespace: '{{ cluster.metadata.namespaces.user }}'
   spec:
     replicas: 1
@@ -16,17 +16,12 @@ items:
       metadata:
         creationTimestamp: null
         labels:
-          app: flask
+          app: api
       spec:
         containers:
-        - env:
-          - name: PRODUCTION
-            value: "true"
-          - name: CLUSTER_NAME
-            value: '{{ cluster.name }}'
-          image: hasura/hello-world:latest
+        - image: hasura/base-git-image:0.7
           imagePullPolicy: IfNotPresent
-          name: app
+          name: api
           ports:
           - containerPort: 8080
             protocol: TCP
@@ -39,9 +34,9 @@ items:
   metadata:
     creationTimestamp: null
     labels:
-      app: flask
+      app: api
       hasuraService: custom
-    name: flask
+    name: api
     namespace: '{{ cluster.metadata.namespaces.user }}'
   spec:
     ports:
@@ -49,7 +44,7 @@ items:
       protocol: TCP
       targetPort: 8080
     selector:
-      app: flask
+      app: api
     type: ClusterIP
   status:
     loadBalancer: {}

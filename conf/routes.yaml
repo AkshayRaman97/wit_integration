@@ -162,16 +162,14 @@ notify:
 
 # To see actual endpoints for these routes, use `$ hasura cluster status`
 
-flask:
+api:
   /:
     corsPolicy: allow_all
     upstreamService:
-      name: flask
+      name: api
       namespace: '{{ cluster.metadata.namespaces.user }}'
     upstreamServicePath: /
     upstreamServicePort: 80
-
-
 
 app:
   /:

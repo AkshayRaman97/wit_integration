@@ -19,10 +19,10 @@ remotes:
 
     # Add output of `hasura conf generate-remote` below this line
 
-    '{{ cluster.metadata.namespaces.user }}.flask':
-      app:
-        dockerfile: microservices/flask/Dockerfile
-        path: microservices/flask
+    '{{ cluster.metadata.namespaces.user }}.api':
+      api:
+        dockerfile: microservices/api/Dockerfile
+        path: microservices/api
 
 
     '{{ cluster.metadata.namespaces.user }}.app':
