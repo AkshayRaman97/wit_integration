@@ -1,6 +1,16 @@
-# base
+# Wit integration
 
-A blank template to be used as a starting point to build projects on Hasura. A "project" is a "gittable" directory in the file system, which captures all the information regarding clusters, services and migrations. It can also be used to keep source code for custom services that you write.
+This project is a basic integration of the open source Natural Language Processing tool **Wit.ai** .
+
+There are 2 microservices in this project
+
+
+    api --> The backend of the entire application.
+            Exposes endpoints to be used by the web and mobile apps.
+
+    app --> The web app frontend for the application.
+            Allows a user to enter a text and get the response from the wit client.
+
 
 ## Files and Directories
 
@@ -27,13 +37,22 @@ The project (a.k.a. project directory) has a particular directory structure and 
 │   ├── 1504788327_create_table_userprofile.down.sql
 │   ├── 1504788327_create_table_userprofile.up.yaml
 │   └── 1504788327_create_table_userprofile.up.sql
-└── microservices 
-    ├── adminer
-    │   └── k8s.yaml
-    └── flask
-        ├── src/
-        ├── k8s.yaml
-        └── Dockerfile
+└── microservices
+    ├── app
+    │   └── app
+    |       ├ public /
+    |       ├ src /
+    |       ├ .gitignore
+    |       ├ Readme.md
+    |       ├ yarn.lock
+    └── api
+    |   ├── conf/
+    |   ├── src/
+    |   ├── k8s.yaml
+    |   ├── Readme.md
+    |   └── Dockerfile
+    | .gitkeep
+    | Readme.md
 ```
 
 ### `hasura.yaml`
