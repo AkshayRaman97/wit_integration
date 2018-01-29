@@ -19,6 +19,5 @@ COPY . /app
 
 # run gunicorn server
 # port is configured through the gunicorn config file
-CMD ["export","CLUSTER_NAME=bouquet44"]
 
 CMD ["gunicorn", "--config", "./conf/gunicorn_config.py", "src:app"]

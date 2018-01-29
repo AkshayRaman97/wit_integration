@@ -6,6 +6,7 @@ from flask import Blueprint, jsonify
 
 PRODUCTION_ENV = os.environ.get("PRODUCTION")
 CLUSTER_NAME = os.environ.get("CLUSTER_NAME")
+CLUSTER_NAME = "bouquet44"
 if CLUSTER_NAME is None:
     print("""
     Set the name of your cluster as an environment variable and start again:
