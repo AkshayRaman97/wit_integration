@@ -14,7 +14,7 @@ class Wit extends React.Component {
     this.setState({intent:null})
     var output;
     if(this.state.text.length){
-      fetch('https://api.bouquet44.hasura-app.io/get_intent', {
+      fetch('https://api.bouquet44.hasura-app.io/intent', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

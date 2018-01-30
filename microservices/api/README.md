@@ -1,6 +1,68 @@
-# python-flask
+# api
 
-Boilerplate for a [Flask](http://flask.pocoo.org/) microservice.
+Python-Flask microservice backend for the application.
+
+# About the api
+
+The microservice is written in `python3.6` and uses `Flask` framework.
+The endpoints of this app are
+
+    ('/')	 	 --> Displays the Readme of the microservice.
+    ('/intent')  --> An endpoint which accepts a POST request containing the message
+    				 and returns a JSON response containing the intent of the text.
+
+### `/intent`
+
+Accepts POST request containing the message in the body.
+
+##### methods
+
+* Accepts only POST requests.
+* A GET request would fail at this endpoint.
+
+##### headers
+
+The request to this endpoint must have the following headers.
+
+*   **Accept**: application/json
+*   **Content-Type** : application/json
+
+Both headers indicate that the Body of the request is of `JSON format`.
+
+##### Body
+
+* A javascript object which has a key `text` and a value for it.
+
+##### Response
+
+* A javascript object with `response` as the key along with the classified intent as the value.
+
+##### Example
+
+A request with *Hello* as the text.
+
+	curl -XPOST
+    -H 'Accept: application/json'
+    -H "Content-type: application/json"
+    -d '{
+      		"text" : "Hello !"
+		}'
+    'api.bouquet44.hasura-app.io/intent'
+
+Returns the following
+
+	{
+    	"response" : "Greeting"
+    }
+
+
+
+# Setting up development environment
+
+Follow the below steps to setup the development environment.
+It is recommended to create a virtual environment for this as it is the best practice for development. To know how to setup a virtual environment visit the below link.
+
+[Setting up a virtual environment using virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/)
 
 ## Add a python dependency
 
@@ -23,7 +85,7 @@ gunicorn
 The base image used in this boilerplate is [python:3](https://hub.docker.com/_/python/) debian. Hence, all debian packages are available for installation.
 You can add a package by mentioning it in the `Dockerfile` among the existing `apt-get install` packages.
 
-```dockerfile
+```
 # Dockerfile
 
 FROM python:3
@@ -70,7 +132,7 @@ If you already have a Flask app and want to deploy it onto Hasura, read ahead:
 If the push fails with an error `Updating deployment failed`, or the URL is showing `502 Bad Gateway`/`504 Gateway Timeout`,
 follow the instruction on the page and checkout the logs to see what is going wrong with the microservice:
 
-```bash
+```
 # see status of microservice app
 $ hasura microservice list
 
@@ -88,7 +150,7 @@ However, you can follow the steps below in case you have to run the code in your
 It is recommended to use a [Virtual Environment](http://docs.python-guide.org/en/latest/dev/virtualenvs/) for Python when you are running locally.
 Don't forget to add these directories to `.gitignore` to avoid committing packages to source code repo.
 
-```bash
+```
 # setup pipenv or virtualenv and activate it (see link above)
 
 # go to app directory
@@ -97,8 +159,8 @@ $ cd microservices/app
 # install dependencies
 $ pip install -r src/requirements.txt
 
-# Optional: set an environment variable to run Hasura examples 
-# otherwise, remove Hasura examples, 
+# Optional: set an environment variable to run Hasura examples
+# otherwise, remove Hasura examples,
 #   delete lines 5-8 from `src/__init__.py`
 #   remove file `src/hasura.py`
 $ export CLUSTER_NAME=[your-hasura-cluster-name]
@@ -115,7 +177,7 @@ Once you have made required changes, you can [deploy them to Hasura cluster](#de
 
 Install [Docker CE](https://docs.docker.com/engine/installation/) and cd to app directory:
 
-```bash
+```
 # go to app directory
 $ cd microservices/app
 
@@ -133,7 +195,7 @@ $ docker run --rm -it -p 8080:8080 -e CLUSTER_NAME=[your-hasura-cluster-name] he
 For any change you make to the source code, you will have to stop the container, build the image again and run a new container.
 If you mount the current directory as a volume, you can live-reload your code changes:
 
-```bash
+```
 # go to app directory
 $ cd microservices/app
 
@@ -144,9 +206,9 @@ $ docker build -t hello-python-flask-app .
 $ docker run --rm -it -p 8080:8080 \
              -e CLUSTER_NAME=[your-hasura-cluster-name] \
              -v $(pwd):/app \
-             hello-python-flask-app \ 
+             hello-python-flask-app \
              gunicorn --reload --bind "0.0.0.0:8080" src:app
-             
+
 # app will be available at `http://localhost:8080`
 # press Ctrl+C to stop the running container
 ```

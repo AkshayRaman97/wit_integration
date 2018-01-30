@@ -13,7 +13,7 @@ intents = ['Greeting','Question','Command','Statement','Recommendation']
 def home():
     return render_template('help.html')
 
-@app.route("/get_intent",methods = ['POST'])
+@app.route("/intent",methods = ['POST'])
 def get_intent():
     try:
         text = request.json['text']
