@@ -29,15 +29,15 @@ The request to this endpoint must have the following headers.
 
 Both headers indicate that the Body of the request is of `JSON format`.
 
-##### Body
+##### body
 
 * A javascript object which has a key `text` and a value for it.
 
-##### Response
+##### response
 
 * A javascript object with `response` as the key along with the classified intent as the value.
 
-##### Example
+##### example
 
 A request with *Hello* as the text.
 
