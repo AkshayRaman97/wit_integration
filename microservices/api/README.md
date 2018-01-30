@@ -7,9 +7,9 @@ Python-Flask microservice backend for the application.
 The microservice is written in `python3.6` and uses `Flask` framework.
 The endpoints of this app are
 
-    ('/')	 	 --> Displays the Readme of the microservice.
-    ('/intent')  --> An endpoint which accepts a POST request containing the message
-    				 and returns a JSON response containing the intent of the text.
+    ('/')       --> Displays the Readme of the microservice.
+    ('/intent') --> An endpoint which accepts a POST request containing the message
+                    and returns a JSON response containing the intent of the text.
 
 ### `/intent`
 
