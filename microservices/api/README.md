@@ -14,6 +14,7 @@ The endpoints of this app are
 ### `/intent`
 
 Accepts POST request containing the message in the body.
+Link to this endpoint is here [/intent](https://api.bouquet44.hasura-app.io/intent).
 
 ##### methods
 
