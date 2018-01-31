@@ -68,13 +68,15 @@ body {
   margin: 0px auto 10px auto;
   transition : all 0.3s ease;
 }
+.outputContainer {
+  width: fit-content;
+  padding-top:45px;
+}
 .outputbox {
   opacity: 1;
   width: fit-content;
-  margin-top : 45px;
   font-family: 'Raleway', sans-serif;
   font-size: 34px;
-  transition: all 0.25s ease-in-out;
 }
 .bold {
   background-color: #a8a8a8;
@@ -84,6 +86,14 @@ body {
   color: white;
   padding: 10px 30px;
   border-radius: 2px;
+}
+.active {
+  opacity: 1.0;
+  transition: all 0.25s ease;
+}
+.inactive{
+    opacity: 0;
+    transition: all 0.15s ease;
 }
 @media screen and (max-width: 768px){
     /* For mobile phones: */
@@ -111,6 +121,8 @@ body {
     }
     .outputbox {
       font-size: 12px;
-      margin-top: 10px;
+    }
+    .outputContainer {
+      padding-top:10px;
     }
 }

@@ -1,17 +1,30 @@
-import React from 'react';
-import './index.css';
+import React from 'react'
+import './index.css'
 
 class Wit extends React.Component {
   constructor(props){
     super(props)
-    this.state = {text:"",intent:null};
+    this.state = {
+      text:"",
+      intent:null,
+      status:"inactive"
+    };
   }
   handleTextChange(e){
-    this.setState({text:e.target.value})
+    this.setState(
+      {
+        text:e.target.value,
+      }
+    );
   }
   changeOutput(e){
     e.preventDefault();
-    this.setState({intent:null})
+    this.setState(
+      {
+        intent:null,
+        status:"inactive"
+      }
+    );
     var output;
     if(this.state.text.length){
       fetch('https://api.bouquet44.hasura-app.io/intent', {
@@ -26,39 +39,46 @@ class Wit extends React.Component {
         output = data.response;
         return output;
        }).then((output) => {
-         this.setState({intent:output});
+         this.setState({
+           intent:output,
+           status:"active"
+         }
+       );
        });
     }).catch(err => {
       console.error(err);
     });
   }
 }
-showOutput() {
-  if(this.state.intent){
-    if("Couldn't find one" === this.state.intent){
-      return(
-        <div className="center outputbox alert">
-          Couldn't find an intent!
-        </div>
-      );
-    }
-    return(
-      <div className="center outputbox">
-        <b className="bold"> &nbsp;&nbsp; Intent &nbsp;&nbsp;</b> &nbsp;&nbsp;{this.state.intent}
-      </div>
-    );
+  showOutput() {
+      if(this.state.intent && "Couldn't find one" === this.state.intent){
+        return(
+          <div className="outputbox center alert">
+            Couldn't find intent!
+          </div>
+        );
+      }
+      else if(!this.state.intent){
+          return(
+            <div className="outputbox center">
+            </div>
+          )
+      }
+      else{
+        return(
+          <div className="outputbox center">
+              <b className="bold"> &nbsp;&nbsp; Intent &nbsp;&nbsp;</b> &nbsp;&nbsp;{this.state.intent}
+          </div>
+          );
+      }
   }
-  else{
-      return(
-        <div>
-        </div>
-      );
-    }
-}
-showPlaceholder(){
-  var text_list = ["Hello","Have a good day","What is this?","How does wit work?","You must do your duty","Maybe there's a better way"];
-  return text_list[Math.floor(Math.random() * Math.floor(text_list.length))];
-}
+  showPlaceholder(){
+    var text_list = ["Hello","Have a good day","What is this?","How does wit work?","You must do your duty","Maybe there's a better way"];
+    return text_list[Math.floor(Math.random() * Math.floor(text_list.length))];
+  }
+  getContainerClass(){
+    return("outputContainer center " + this.state.status);
+  }
   render(){
     return(
       <div className="Wit">
@@ -69,7 +89,9 @@ showPlaceholder(){
             <input className="button center" type="submit" value="Get intent" />
           </div>
         </form>
-        {this.showOutput()}
+        <div className={this.getContainerClass()} ref="output-box">
+          {this.showOutput()}
+        </div>
       </div>
     );
   }
