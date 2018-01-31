@@ -34,14 +34,21 @@ class Wit extends React.Component {
   }
 }
 showOutput() {
-    if(this.state.intent){
+  if(this.state.intent){
+    if("Couldn't find one" === this.state.intent){
       return(
-        <div className="center outputbox">
-          <b className="bold"> &nbsp;&nbsp; Intent &nbsp;&nbsp;</b> &nbsp;&nbsp;{this.state.intent}
+        <div className="center outputbox alert">
+          Couldn't find an intent!
         </div>
       );
     }
-    else{
+    return(
+      <div className="center outputbox">
+        <b className="bold"> &nbsp;&nbsp; Intent &nbsp;&nbsp;</b> &nbsp;&nbsp;{this.state.intent}
+      </div>
+    );
+  }
+  else{
       return(
         <div>
         </div>
