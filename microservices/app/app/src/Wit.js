@@ -58,7 +58,9 @@ showPlaceholder(){
         <form className="WitForm" onSubmit={this.changeOutput.bind(this)}>
           <input className="text-input center" placeholder={this.showPlaceholder()} type="text" value={this.state.text} onChange={this.handleTextChange.bind(this)}/>
           <br />
-          <input className="button center" type="submit" value="Submit" />
+          <div className="button-container center">
+            <input className="button center" type="submit" value="Get intent" />
+          </div>
         </form>
         {this.showOutput()}
       </div>
