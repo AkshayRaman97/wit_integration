@@ -102,11 +102,11 @@ body {
 @media screen and (max-width: 768px){
     /* For mobile phones: */
     .Header{
-        font-size: 36px;
-        margin : auto;
+      font-size: 36px;
+      margin : auto;
     }
     .Intro {
-      font-size: 18px;
+      font-size: 24px;
       width: 95%;
       margin-top: 30px;
     }
@@ -124,7 +124,7 @@ body {
       font-size: 16px;
     }
     .outputbox {
-      font-size: 12px;
+      font-size: 22px;
     }
     .outputContainer {
       padding-top:10px;
