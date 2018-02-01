@@ -19,12 +19,7 @@ class Wit extends React.Component {
   }
   changeOutput(e){
     e.preventDefault();
-    this.setState(
-      {
-        intent:null,
-        status:"inactive"
-      }
-    );
+    setTimeout(() => {this.outputBox.className="outputContainer center inactive";},1000);
     var output;
     if(this.state.text.length){
       fetch('https://api.bouquet44.hasura-app.io/intent', {
@@ -41,9 +36,8 @@ class Wit extends React.Component {
        }).then((output) => {
          this.setState({
            intent:output,
-           status:"active"
-         }
-       );
+         });
+         this.outputBox.className="outputContainer center active";
        });
     }).catch(err => {
       console.error(err);
@@ -76,9 +70,6 @@ class Wit extends React.Component {
     var text_list = ["Hello","Have a good day","What is this?","How does wit work?","You must do your duty","Maybe there's a better way"];
     return text_list[Math.floor(Math.random() * Math.floor(text_list.length))];
   }
-  getContainerClass(){
-    return("outputContainer center " + this.state.status);
-  }
   render(){
     return(
       <div className="Wit">
@@ -89,7 +80,7 @@ class Wit extends React.Component {
             <input className="button center" type="submit" value="Get intent" />
           </div>
         </form>
-        <div className={this.getContainerClass()} ref="output-box">
+        <div className="outputContainer center" ref={(output) => { this.outputBox = output; }}>
           {this.showOutput()}
         </div>
       </div>
