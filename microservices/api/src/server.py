@@ -11,7 +11,7 @@ intents = ['Greeting','Question','Command','Statement','Recommendation']
 
 @app.route("/")
 def home():
-    return render_template('help.html')
+    return render_template('Readme.html')
 
 @app.route("/intent",methods = ['POST'])
 def get_intent():

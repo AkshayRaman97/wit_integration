@@ -1,0 +1,10 @@
+#Container {
+  width:60% !important;
+  margin: 50px auto;
+}
+
+@media screen and (max-width: 768px){
+  #Container {
+    width:80% !important;
+  }
+}
