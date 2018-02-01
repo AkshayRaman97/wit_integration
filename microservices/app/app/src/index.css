@@ -71,6 +71,7 @@ body {
 .outputContainer {
   width: fit-content;
   padding-top:45px;
+  overflow: hidden;
 }
 .outputbox {
   opacity: 1;
@@ -83,17 +84,20 @@ body {
 }
 .alert {
   background-color: rgba(255,76,76, 0.5);
+  font-size: 32px;
   color: white;
   padding: 10px 30px;
   border-radius: 2px;
 }
 .active {
   opacity: 1.0;
+  margin-top: 0px;
   transition: all 0.25s ease;
 }
 .inactive{
     opacity: 0;
-    transition: all 0.15s ease;
+    margin-top: 55px;
+    transition: all 0.20s ease;
 }
 @media screen and (max-width: 768px){
     /* For mobile phones: */
@@ -124,5 +128,8 @@ body {
     }
     .outputContainer {
       padding-top:10px;
+    }
+    .inactive{
+      margin-top: 15px;
     }
 }
