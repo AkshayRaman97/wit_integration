@@ -69,36 +69,10 @@ The project (a.k.a. project directory) has a particular directory structure and 
     | .gitkeep
     | Readme.md
 ```
-### `hasura.yaml`
 
-This file contains some metadata about the project, namely a name, description and some keywords. Also contains `platformVersion` which says which Hasura platform version is compatible with this project.
+> Most of these files only exist for the proper functioning and deployment of our microservices in the hasura cluster. So we would not be working with them . The only folder of our interest is the `microservices` folder which contains the custom microservices created by us . Read more about the hasura project structure here [hasura_docs](https://docs.hasura.io/0.15/manual/tutorial/2-hasura-project.html).
 
-### `clusters.yaml`
-
-Info about the clusters added to this project can be found in this file. Each cluster is defined by it's name allotted by Hasura. While adding the cluster to the project you are prompted to give an alias, which is just hasura by default. The `kubeContext` mentions the name of kubernetes context used to access the cluster, which is also managed by hasura. The `config` key denotes the location of cluster's metadata on the cluster itself. This information is parsed and cluster's metadata is appended while conf is rendered. `data` key is for holding custom variables that you can define.
-```yaml
-- name: h34-ambitious93-stg
-  alias: hasura
-  kubeContext: h34-ambitious93-stg
-  config:
-    configmap: controller-conf
-    namespace: hasura
-  data: null  
-```
-### `conf`
-* ##### `authorized-keys.yaml`
-    * SSH keys allowed to access the cluster
-    * One public key per line
-* ##### `*.yaml`
-    * Configuration for the cluster, split into various yaml files
-
-### `migrations`
-Database migration files are kept in this directory
-
-
-> Most of these files only exist for the proper functioning and deployment of our microservices in the kubernetes cluster. So we would not be working with them . The only folders of our interest is the `microservices` folder which contains the custom microservices created by us.
-
-### `microservices`
+## `microservices`
 
 Contains the microservices created by the user in the project. Each microservice has a route which is of the format :
 
@@ -124,13 +98,13 @@ To know more read the [hasura docs](https://docs.hasura.io/0.15/manual/hasuractl
 
 This project has 2 custom microservices.
 
-## `api`
+### `api`
 
 This custom microservice acts as the backend of the application.
 It exposes endpoints throught which the frontend can POST a text and recieve `intent` of the text as a response in `JSON` format.
 This microservices is written in python with the `flask` framework.Read more about it [here](https://github.com/AkshayRaman97/wit_integration/blob/master/microservices/api/README.md).
 
-## `app`
+### `app`
 The web app frontend for the application.Allows a user to enter a text and get the response from the wit client.
 It serves a `react-js` application.
 Read more about this microservice [here](https://github.com/AkshayRaman97/wit_integration/blob/master/microservices/app/app/README.md).
