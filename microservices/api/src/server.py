@@ -28,7 +28,7 @@ def get_intent():
             output['date'] = datetime[0]
             output['time'] = datetime[1]
             return(jsonify(output))
-        except KeyError:
+        except (KeyError,TypeError) as e:
             return(jsonify(output))
         else:
             return jsonify({"message":"Some error occured"})
