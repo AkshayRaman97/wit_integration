@@ -7,7 +7,10 @@ class Wit extends React.Component {
     this.state = {
       text:"",
       intent:null,
-      status:"inactive"
+      search_term:null,
+      date:null,
+      time:null,
+      start:true
     };
   }
   handleTextChange(e){
@@ -20,7 +23,6 @@ class Wit extends React.Component {
   changeOutput(e){
     e.preventDefault();
     setTimeout(() => {this.outputBox.className="outputContainer center inactive";},1000);
-    var output;
     if(this.state.text.length){
       fetch('https://api.bouquet44.hasura-app.io/intent', {
       method: 'POST',
@@ -29,45 +31,66 @@ class Wit extends React.Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({text:this.state.text})
-    }).then(response => {
-      response.json().then(function(data) {
-        output = data.response;
-        return output;
-       }).then((output) => {
+    }).then(response => response.json())
+    .then((output) => {
+         console.log(output);
          this.setState({
-           intent:output,
+           intent:output['intent'],
+           search_term:output['search_term'],
+           date:output['date'],
+           time:output['time'],
+           location:output['location'],
+           start:false
          });
          this.outputBox.className="outputContainer center active";
-       });
-    }).catch(err => {
+       }).catch(err => {
       console.error(err);
     });
   }
 }
   showOutput() {
-      if(this.state.intent && "Couldn't find one" === this.state.intent){
-        return(
-          <div className="outputbox center alert">
-            Couldn't find intent!
-          </div>
-        );
+      var intent,date,time,search_term,classes,location;
+      classes = "outputbox center";
+      if(this.state.intent && !this.state.start){
+        intent = <tr><td><b className="bold">Intent</b></td><td>{this.state.intent}</td></tr>
       }
-      else if(!this.state.intent){
-          return(
-            <div className="outputbox center">
-            </div>
-          )
+      else if(!this.state.start){
+        intent = <tr><td>Couldn't find one</td></tr>
+        classes = "outputbox center alert";
       }
-      else{
-        return(
-          <div className="outputbox center">
-              <b className="bold"> &nbsp;&nbsp; Intent &nbsp;&nbsp;</b> &nbsp;&nbsp;{this.state.intent}
-          </div>
-          );
+      if(this.state.search_term){
+        search_term = <tr><td><b className="bold">Search term</b></td><td>{this.state.search_term}</td></tr>
       }
+      if(this.state.date){
+        date = <tr><td><b className="bold">Date</b></td><td>{this.state.date}</td></tr>
+      }
+      if(this.state.time){
+        time = <tr><td><b className="bold">Time</b></td><td>{this.state.time}</td></tr>
+      }
+      if(this.state.location){
+        location = <tr><td><b className="bold">Location</b></td><td>{this.state.location}</td></tr>
+      }
+      return(
+        <table className={classes}>
+          <tbody>
+            {intent}
+            {search_term}
+            {location}
+            {date}
+            {time}
+          </tbody>
+        </table>
+      );
   }
   showPlaceholder(){
-    var text_list = ["Hello","Have a good day","What is this?","How does wit work?","You must do your duty","Maybe there's a better way"];
+    var text_list = [
+      "Hello",
+      "What's up in Mumbai at 4pm today?",
+      "Tell me about Tesla",
+      "How is the weather today?",
+      "Tell me about the next IPL match",
+      "What's trending?",
+      "Bye!"];
     return text_list[Math.floor(Math.random() * Math.floor(text_list.length))];
   }
   render(){

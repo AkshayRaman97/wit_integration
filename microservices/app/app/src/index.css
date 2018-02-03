@@ -2,11 +2,11 @@
 
 
 body {
-  padding: 20px;
-  background-color: #c1fcc1;
+  padding: 5px;
   background-color: #ccccff;
 }
 .Header {
+  float: left;
   font-size : 64px;
   color : black;
   font-family: 'Raleway', sans-serif;
@@ -17,10 +17,10 @@ body {
 }
 .Intro {
   text-align: center;
-  margin: 15px auto;
+  margin: 0px auto;
   width: 60%;
-  padding: 10px;
-  font-size: 36px;
+  padding: 15px 5px 5px 5px;
+  font-size: 32px;
   font-family: 'Raleway',sans-serif;
   font-weight: 400;
 }
@@ -28,15 +28,16 @@ body {
   display: block;
   margin: auto;
 }.WitForm {
-  height: 240px;
+  height: auto;
+  margin-bottom: 40px;
 }
 .text-input {
   text-align: center;
-  margin: 30px auto;
+  margin: 5px auto;
   height: 55px;
   width: 700px;
-  padding: 30px 10px 10px 10px;
-  font-size: 40px;
+  padding: 10px 10px 10px 10px;
+  font-size: 38px;
   font-family: 'Raleway' ,sans-serif;
   font-weight: 400;
   background-color: inherit;
@@ -50,7 +51,7 @@ body {
 }
 .button-container {
   width: fit-content;
-  padding: 15px;
+  padding: 10px;
 }
 .button {
   color : white;
@@ -70,7 +71,6 @@ body {
 }
 .outputContainer {
   width: 100%;
-  padding-top:45px;
   overflow: hidden;
 }
 .outputbox {
@@ -79,8 +79,11 @@ body {
   font-family: 'Raleway', sans-serif;
   font-size: 34px;
 }
+.outputbox td{
+  padding: 2px 20px;
+}
 .bold {
-  background-color: #a8a8a8;
+  /* background-color: #a8a8a8; */
 }
 .alert {
   background-color: rgba(255,76,76, 0.5);
@@ -102,16 +105,17 @@ body {
 @media screen and (max-width: 768px){
     /* For mobile phones: */
     .Header{
+      float: none;
       font-size: 36px;
       margin : auto;
     }
     .Intro {
       font-size: 24px;
       width: 95%;
-      margin-top: 30px;
+      margin-top: 0px;
     }
     .WitForm {
-      height: 200px;
+      height: auto;
     }
     .text-input {
       height : 40px;
@@ -127,7 +131,7 @@ body {
       font-size: 22px;
     }
     .outputContainer {
-      padding-top:10px;
+      padding-top:0px;
     }
     .inactive{
       margin-top: 15px;
