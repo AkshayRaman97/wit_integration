@@ -5,9 +5,11 @@ import requests
 import json
 
 URL = "https://api.wit.ai/samples"
-AUTH = "OTRUHWG5AMWZMYJC2C6XL2N73M2NU252"
+AUTH = "MZOHV54LAG5UEZYPE5JRESNPQMK6VBWB"
+# AUTH = "OTRUHWG5AMWZMYJC2C6XL2N73M2NU252"
+
+# Inititalizing wit client
 client = Wit(AUTH)
-intents = ['Greeting','Question','Command','Statement','Recommendation']
 
 @app.route("/")
 def home():
@@ -15,16 +17,22 @@ def home():
 
 @app.route("/intent",methods = ['POST'])
 def get_intent():
+    output = {}
     try:
         text = request.json['text']
         try:
             response = client.message(text)
-            return(jsonify({"response":response['entities']['intent'][0]['value']}))
+            output['intent'] = response['entities']['intent'][0]['value']
+            output['search_term'] = (response['entities'].get('location') or response['entities'].get('local_search_query'))[0]['value']
+            datetime = response['entities']['datetime'][0]['value'].split('.')[0].split('T')
+            output['date'] = datetime[0]
+            output['time'] = datetime[1]
+            return(jsonify(output))
         except KeyError:
-            return(jsonify({"response":"Couldn't find one"}))
+            return(jsonify(output))
         else:
-            return jsonify({"response":"Some error occured"})
+            return jsonify({"message":"Some error occured"})
     except KeyError:
-        return jsonify({"response":"Invalid input"})
+        return jsonify({"message":"Invalid input"})
     else:
-        return jsonify({"response":"Some error occured"})
+        return jsonify({"message":"Some error occured"})
