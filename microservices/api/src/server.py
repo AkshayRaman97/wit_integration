@@ -22,11 +22,16 @@ def get_intent():
         text = request.json['text']
         try:
             response = client.message(text)
-            output['intent'] = response['entities']['intent'][0]['value']
-            output['search_term'] = (response['entities'].get('location') or response['entities'].get('local_search_query'))[0]['value']
-            datetime = response['entities']['datetime'][0]['value'].split('.')[0].split('T')
-            output['date'] = datetime[0]
-            output['time'] = datetime[1]
+            if response['entities'].get('intent'):
+                output['intent'] = response['entities']['intent'][0]['value']
+            if response['entities'].get('location'):
+                output['location'] = response['entities']['location'][0]['value']
+            if response['entities'].get('local_search_query'):
+                output['search_term'] = response['entities'].get('local_search_query')[0]['value']
+            if response['entities'].get('datetime'):
+                datetime = response['entities']['datetime'][0]['value'].split('.')[0].split('T')
+                output['date'] = datetime[0]
+                output['time'] = datetime[1]
             return(jsonify(output))
         except (KeyError,TypeError) as e:
             return(jsonify(output))
