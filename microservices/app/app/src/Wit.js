@@ -89,6 +89,7 @@ class Wit extends React.Component {
       "Tell me about Tesla",
       "How is the weather today?",
       "Tell me about the next IPL match",
+      "IPL match at 4pm on Sunday",
       "What's trending?",
       "Bye!"];
     return text_list[Math.floor(Math.random() * Math.floor(text_list.length))];
