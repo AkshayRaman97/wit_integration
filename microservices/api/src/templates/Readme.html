@@ -5,22 +5,21 @@
 window.__cfRocketOptions = {byc:0,p:0,petok:"13037cb908591ea85ffbfcf31b4748f0face163e-1517495236-1800"};
 //]]>
 </script>
-<link rel="stylesheet" href="../static/css/master.css">
+<link rel="stylesheet" href="../static/css/temp.css">
 <link rel="shortcut icon" href="../static/icons/favicon.png">
 <script type="text/javascript" src="https://ajax.cloudflare.com/cdn-cgi/scripts/b7ef205d/cloudflare-static/rocket.min.js"></script>
 </head>
 <body id="preview">
   <div id="Container">
-    <h1>About this microservice</h1>
-    <h1><a id="api_0"></a><code>api</code></h1>
+    <h1><a id="About_this_microservice_0"></a>About this microservice</h1>
+    <h1><a id="api_2"></a><code>api</code></h1>
     <p>Python-Flask microservice backend for the wit_integration.</p>
-    <h2><a id="About_the_api_4"></a>About the api</h2>
     <p>The microservice is written in <code>python3.6</code> and uses <code>Flask</code> framework.<br>
     The endpoints of this app are</p>
-    <pre><code>
-    ('/')       --&gt; Displays the Readme of the microservice.
+    <pre><code>('/')       --&gt; Displays the Readme of the microservice.
     ('/intent') --&gt; An endpoint which accepts a POST request containing the message
                     and returns a JSON response containing the intent of the text.
+    ('/test')   --&gt; A test endpoint used for demonstrating usage of Wit client
     </code></pre>
     <h3><a id="intent_13"></a><code>/intent</code></h3>
     <p>Accepts POST request containing the message in the body.<br>
@@ -41,27 +40,53 @@ window.__cfRocketOptions = {byc:0,p:0,petok:"13037cb908591ea85ffbfcf31b4748f0fac
     <ul>
     <li>A javascript object which has a key <code>text</code> and a value for it.</li>
     </ul>
-    <h5><a id="response_36"></a>response</h5>
+    <pre><code class="language-json">{
+        "<span class="hljs-attribute">text</span>" : <span class="hljs-value"><span class="hljs-string">"Hello !"</span>
+    </span>}
+    </code></pre>
+    <h5><a id="response_42"></a>response</h5>
+    <p>The response is a JSON object with the following data</p>
     <ul>
-    <li>A javascript object with <code>response</code> as the key along with the classified intent as the value.</li>
+    <li><code>Intent</code> - The intent of your text, this could be any of the following
+    <ul>
+    <li><strong>greeting</strong> - If you enter text like ‘Hi’ or ‘Hello’.</li>
+    <li><strong>get_news</strong> - Fetch news about the search term.</li>
+    <li><strong>get_twitter_feed</strong> - Fetch tweets related to the search term.</li>
+    <li><strong>get_weather</strong> - Fetch info about the weather.</li>
+    <li><strong>exit</strong> - If you enter text like ‘Bye’.</li>
     </ul>
-    <h5><a id="example_40"></a>example</h5>
+    </li>
+    <li><code>Search term</code> - The key word for fetching information , this could be on of the following
+    <ul>
+    <li><strong>Location</strong> - Such as Mumbai, Delhi, Sydney etc.</li>
+    <li><strong>Query</strong> - Dhoni, Terror attacks, Olympics, Microsoft.</li>
+    </ul>
+    </li>
+    <li><code>Date</code> - Could be <em>next sunday</em>, <em>tomorrow</em>, <em>today</em> ,<em>september 12th</em> etc.</li>
+    <li><code>Time</code> - 5pm , 6am etc.</li>
+    </ul>
+    <h5><a id="example_58"></a>example</h5>
     <p>A request with <em>Hello</em> as the text.</p>
-    <pre><code>curl -XPOST
-    -H 'Accept: application/json'
-    -H &quot;Content-type: application/json&quot;
-    -d '{
-            &quot;text&quot; : &quot;Hello !&quot;
-        }'
-    'api.bouquet44.hasura-app.io/intent'
+    <pre><code class="language-bash">    curl -XPOST
+        -H <span class="hljs-string">'Accept: application/json'</span>
+        -H <span class="hljs-string">"Content-type: application/json"</span>
+        <span class="hljs-operator">-d</span> <span class="hljs-string">'{
+                "text" : "Will it rain today at 5pm in Bangkok"
+            }'</span>
+        <span class="hljs-string">'api.bouquet44.hasura-app.io/intent'</span>
     </code></pre>
     <p>Returns the following</p>
-    <pre><code>{
-        &quot;response&quot; : &quot;Greeting&quot;
-    }
+    <pre><code class="language-json">{
+        "<span class="hljs-attribute">date</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-07"</span></span>,
+        "<span class="hljs-attribute">intent</span>": <span class="hljs-value"><span class="hljs-string">"get_weather"</span></span>,
+        "<span class="hljs-attribute">location</span>": <span class="hljs-value"><span class="hljs-string">"Bangkok"</span></span>,
+        "<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-string">"17:00:00"</span>
+    </span>}
     </code></pre>
-    <h2><a id="Extras_59"></a>Extras</h2>
-    <p>For further notes about things such as local and remote deployment of microservice please refer to the hasura boilerplate repository. A detailed description of the above can be found here <a href="https://github.com/hasura/hello-python-flask/blob/master/README.md">hello-python-flask</a> . </p>
-    {% endraw %}
-  </div>
+    <h2><a id="Extras_82"></a>Extras</h2>
+    <p>For further notes about things such as local and remote deployment of microservice please refer to the hasura boilerplate repository.</p>
+    <p>Link to repository -<a href="https://github.com/hasura/hello-python-flask/blob/master/README.md">hello-python-flask</a></p>
+
+  {% endraw %}
+</div>
 </body></html>

@@ -1,43 +1,66 @@
+#Importing packages
 from src import app
 from wit import Wit
 from flask import render_template,request,jsonify,redirect
 import requests
 import json
 
-URL = "https://api.wit.ai/samples"
+
+# Wit
 AUTH = "MZOHV54LAG5UEZYPE5JRESNPQMK6VBWB"
-# AUTH = "OTRUHWG5AMWZMYJC2C6XL2N73M2NU252"
+client = Wit(AUTH) # Wit client
 
-# Inititalizing wit client
-client = Wit(AUTH)
-
+# Readme
 @app.route("/")
 def home():
     return render_template('Readme.html')
 
-@app.route("/intent",methods = ['POST'])
+# POST endpoint to get intent
+@app.route("/intent",methods = ['GET','POST'])
 def get_intent():
-    output = {}
-    try:
-        text = request.json['text']
+    if request.method=='GET':
+        return redirect('/')
+    if request.method=='POST':
+        output = {}
         try:
-            response = client.message(text)
-            if response['entities'].get('intent'):
-                output['intent'] = response['entities']['intent'][0]['value']
-            if response['entities'].get('location'):
-                output['location'] = response['entities']['location'][0]['value']
-            if response['entities'].get('local_search_query'):
-                output['search_term'] = response['entities'].get('local_search_query')[0]['value']
-            if response['entities'].get('datetime'):
-                datetime = response['entities']['datetime'][0]['value'].split('.')[0].split('T')
-                output['date'] = datetime[0]
-                output['time'] = datetime[1]
-            return(jsonify(output))
-        except (KeyError,TypeError) as e:
-            return(jsonify(output))
+            text = request.json['text']
+            try:
+                response = client.message(text)
+                if response['entities'].get('intent'):
+                    output['intent'] = response['entities']['intent'][0]['value']
+                if response['entities'].get('location'):
+                    output['location'] = response['entities']['location'][0]['value']
+                if response['entities'].get('local_search_query'):
+                    output['search_term'] = response['entities'].get('local_search_query')[0]['value']
+                if response['entities'].get('datetime'):
+                    datetime = response['entities']['datetime'][0]['value'].split('.')[0].split('T')
+                    output['date'] = datetime[0]
+                    output['time'] = datetime[1]
+                return(jsonify(output))
+            except (KeyError,TypeError) as e:
+                return(jsonify(output))
+            else:
+                return jsonify({"message":"Some error occured"})
+        except KeyError:
+            return jsonify({"message":"Invalid input"})
         else:
             return jsonify({"message":"Some error occured"})
+
+
+# Test endpoint
+AUTH_test = "SM2E73JNLMSR2UYOJO2TEGY7DQGX5OXW" # Paste the auhtentication code from Wit app
+client_test = Wit(AUTH_test)
+
+@app.route('/test',methods=["POST"])
+def test():
+    try:
+        # Getting the text from body of the request
+        text = request.json['text']
+        # Sending text to Wit client
+        response = client_test.message(text)
+        # Returning the response
+        return(jsonify(response))
     except KeyError:
-        return jsonify({"message":"Invalid input"})
+        return(jsonify({"message":"Invalid request"}))
     else:
-        return jsonify({"message":"Some error occured"})
+        return(jsonify({"message":"Some error occured"}))
