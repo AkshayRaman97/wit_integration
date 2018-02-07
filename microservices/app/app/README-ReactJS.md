@@ -10,7 +10,7 @@ In order to use this repository as a base repository for your own project follow
 
 To clone the project to your system, you need to have `git` installed. To check if git is already installed use
 
-```
+```bash
 $ git --version
 
 
@@ -281,9 +281,21 @@ Enter some text in the input box to get the following data :
 * `Date` - Could be *next sunday*, *tomorrow*, *today* ,*september 12th* etc.
 * `Time` - 5pm , 6am etc.
 
-A working example
+Working examples:
 
-![image]()
+### Greeting
+![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/gifs/greeting.gif)
+
+### Get weather
+![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/gifs/weather.gif)
+
+### Get tweets
+![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/gifs/twitter.gif)
+
+### Exit
+![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/gifs/exit.gif)
+
+
 
 >This application finds intent for a **chat bot to fetch news** however you can modify it for your own needs.
 
@@ -313,7 +325,7 @@ Click on your app's name on the dashboard , you would see a page like this.
 
 ![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/test_app.png)
 
-You can train your app to find intents and key words. Read the [Wit documentation]() to know more about training your app.
+You can train your app to find intents and key words. Read the [Wit documentation](https://wit.ai/docs) to know more about training your app.
 
 ### Linking to your custom api.
 
@@ -381,6 +393,12 @@ Add body of the request.
 See the response.
 
 ![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/response_request.png)
+
+
+## Author
+
+* **Akshay Raman** - _Team 19_ - [Github Repository](https://github.com/AkshayRaman97)
+
 
 Hope your application is working as expected. If you run into any issues Google and StackOverflow are always there to help !
 
