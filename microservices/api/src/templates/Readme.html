@@ -5,7 +5,7 @@
 window.__cfRocketOptions = {byc:0,p:0,petok:"13037cb908591ea85ffbfcf31b4748f0face163e-1517495236-1800"};
 //]]>
 </script>
-<link rel="stylesheet" href="../static/css/temp.css">
+<link rel="stylesheet" href="../static/css/master.css">
 <link rel="shortcut icon" href="../static/icons/favicon.png">
 <script type="text/javascript" src="https://ajax.cloudflare.com/cdn-cgi/scripts/b7ef205d/cloudflare-static/rocket.min.js"></script>
 </head>
@@ -16,7 +16,8 @@ window.__cfRocketOptions = {byc:0,p:0,petok:"13037cb908591ea85ffbfcf31b4748f0fac
     <p>Python-Flask microservice backend for the wit_integration.</p>
     <p>The microservice is written in <code>python3.6</code> and uses <code>Flask</code> framework.<br>
     The endpoints of this app are</p>
-    <pre><code>('/')       --&gt; Displays the Readme of the microservice.
+    <pre><code>
+    ('/')       --&gt; Displays the Readme of the microservice.
     ('/intent') --&gt; An endpoint which accepts a POST request containing the message
                     and returns a JSON response containing the intent of the text.
     ('/test')   --&gt; A test endpoint used for demonstrating usage of Wit client
@@ -40,7 +41,7 @@ window.__cfRocketOptions = {byc:0,p:0,petok:"13037cb908591ea85ffbfcf31b4748f0fac
     <ul>
     <li>A javascript object which has a key <code>text</code> and a value for it.</li>
     </ul>
-    <pre><code class="language-json">{
+    <pre><code class="language-json">    {
         "<span class="hljs-attribute">text</span>" : <span class="hljs-value"><span class="hljs-string">"Hello !"</span>
     </span>}
     </code></pre>
@@ -76,7 +77,7 @@ window.__cfRocketOptions = {byc:0,p:0,petok:"13037cb908591ea85ffbfcf31b4748f0fac
         <span class="hljs-string">'api.bouquet44.hasura-app.io/intent'</span>
     </code></pre>
     <p>Returns the following</p>
-    <pre><code class="language-json">{
+    <pre><code class="language-json">    {
         "<span class="hljs-attribute">date</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-07"</span></span>,
         "<span class="hljs-attribute">intent</span>": <span class="hljs-value"><span class="hljs-string">"get_weather"</span></span>,
         "<span class="hljs-attribute">location</span>": <span class="hljs-value"><span class="hljs-string">"Bangkok"</span></span>,
@@ -85,7 +86,7 @@ window.__cfRocketOptions = {byc:0,p:0,petok:"13037cb908591ea85ffbfcf31b4748f0fac
     </code></pre>
     <h2><a id="Extras_82"></a>Extras</h2>
     <p>For further notes about things such as local and remote deployment of microservice please refer to the hasura boilerplate repository.</p>
-    <p>Link to repository -<a href="https://github.com/hasura/hello-python-flask/blob/master/README.md">hello-python-flask</a></p>
+    <p>Link to repository -  <a href="https://github.com/hasura/hello-python-flask/blob/master/README.md">hello-python-flask</a></p>
 
   {% endraw %}
 </div>
