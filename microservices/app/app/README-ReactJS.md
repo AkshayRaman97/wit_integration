@@ -298,7 +298,7 @@ Working examples:
 ### Error
 If the bot can't understand your text
 
-![response_error](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/response_error.gif)
+![error](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/error.gif)
 
 >This application finds intent for a **chat bot to fetch news** however , you can modify it for your own needs.
 
