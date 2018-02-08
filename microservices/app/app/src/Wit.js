@@ -10,7 +10,8 @@ class Wit extends React.Component {
       search_term:null,
       date:null,
       time:null,
-      start:true
+      start:true,
+      waking:false,
     };
   }
   handleTextChange(e){
@@ -40,11 +41,15 @@ class Wit extends React.Component {
            date:output['date'],
            time:output['time'],
            location:output['location'],
-           start:false
+           start:false,
+           waking:false,
          });
          this.outputBox.className="outputContainer center active";
        }).catch(err => {
       console.error(err);
+      this.setState({
+        waking:true,
+      });
     });
   }
 }
@@ -53,22 +58,26 @@ class Wit extends React.Component {
       classes = "outputbox center";
       if(this.state.intent && !this.state.start){
         intent = <tr><td><b className="bold">Intent</b></td><td>{this.state.intent}</td></tr>
+        if(this.state.search_term){
+          search_term = <tr><td><b className="bold">Search term</b></td><td>{this.state.search_term}</td></tr>
+        }
+        if(this.state.date){
+          date = <tr><td><b className="bold">Date</b></td><td>{this.state.date}</td></tr>
+        }
+        if(this.state.time){
+          time = <tr><td><b className="bold">Time</b></td><td>{this.state.time}</td></tr>
+        }
+        if(this.state.location){
+          location = <tr><td><b className="bold">Location</b></td><td>{this.state.location}</td></tr>
+        }
       }
-      else if(!this.state.start){
-        intent = <tr><td>Couldn't find one</td></tr>
+      else if(!this.state.start && !this.state.intent){
+        intent = <tr><td>Could not find one</td></tr>
         classes = "outputbox center alert";
       }
-      if(this.state.search_term){
-        search_term = <tr><td><b className="bold">Search term</b></td><td>{this.state.search_term}</td></tr>
-      }
-      if(this.state.date){
-        date = <tr><td><b className="bold">Date</b></td><td>{this.state.date}</td></tr>
-      }
-      if(this.state.time){
-        time = <tr><td><b className="bold">Time</b></td><td>{this.state.time}</td></tr>
-      }
-      if(this.state.location){
-        location = <tr><td><b className="bold">Location</b></td><td>{this.state.location}</td></tr>
+      else if(!this.state.start && this.state.waking){
+        intent = <tr><td>Please wait server is waking up</td></tr>
+        classes = "outputbox center alert";
       }
       return(
         <table className={classes}>

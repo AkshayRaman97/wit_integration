@@ -5,7 +5,7 @@
 4 verbose stack Error: ENOENT: no such file or directory, open '/mnt/2827E12216F50720/work/hpdf/wit_integration/microservices/app/package.json'
 4 verbose stack     at Error (native)
 5 verbose cwd /mnt/2827E12216F50720/work/hpdf/wit_integration/microservices/app
-6 error Linux 4.13.0-25-generic
+6 error Linux 4.13.0-32-generic
 7 error argv "/usr/bin/node" "/usr/bin/npm" "start"
 8 error node v6.11.4
 9 error npm  v3.5.2

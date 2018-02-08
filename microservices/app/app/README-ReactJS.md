@@ -21,7 +21,7 @@ If not installed follow the instructions in this link - [Git installation](https
 Open the terminal in your pc and navigate to your desired folder.
 Then clone the repository using `git clone`.
 
-```
+```bash
 # Navigate to desired folder . Example: /user/project
 $ cd home/user/projects
 
@@ -43,13 +43,13 @@ Inside the `wit_integration` folder you will find a directory structure like thi
 
 Folder structure :
 
-![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/ms_dir.png)
+![ms_dir](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/ms_dir.png)
 
 Contains the custom microservices created by us. This project has 2 microservices `api` and `app` as shown above. Each microservice has a definite structure to be followed.
 
 #### `/microservices/api`
 
-![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/api_dir.png)
+![api_dir](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/api_dir.png)
 
 This is the backend of the integration. Written in `python3.6` and uses the `Flask` framework.
 Edit the `app.py` file to add endpoints to your application.
@@ -64,7 +64,7 @@ References:
 
 #### `/microservices/app`
 
-![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/app_dir.png)
+![app_dir](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/app_dir.png)
 
 The frontend of the project. Uses the `react-js` javascript framework. Edit the `App.js` file to get started.
 
@@ -86,7 +86,7 @@ To install `pip` refer to this link - [Pip](https://pip.pypa.io/en/stable/instal
 
 For any development activity it is best to use a **virtual environment**. It helps us manage our packages in a very efficient way. To use a virtual environment first install `virtualenvwrapper`.
 
-```
+```bash
 # Install virtualenvwrapper
 pip install virtualenvwrapper
 
@@ -106,7 +106,7 @@ If everything is working correctly follow the below code to setup your packages.
 
 Installing the packages and running the application.
 
-```
+```bash
 # Navigate to project folder
 $ cd /home/user/projects/wit_integration
 
@@ -123,10 +123,10 @@ $ pip install -r src/requirements.txt
 $ export CLUSTER_NAME=[your-hasura-cluster-name]
 $ gunicorn --reload --bind "0.0.0.0:8080" src:app
 ```
+
 The app is running at [http://localhost:8080](http://localhost:8080). It runs on `port 8080` by default. In case it fails to run change to a different port and run again.
 
 Edit the `server.py` file to create endpoints for your application.
-
 
 #### For React devs (`app` microservice)
 
@@ -138,7 +138,7 @@ Node.js comes with `npm` pre-installed. npm is short for `node package manager` 
 
 Follow the below instructions to setup your environment.
 
-```
+```bash
 # Navigate to project folder
 $ cd /home/user/projects/wit_integration
 
@@ -167,13 +167,13 @@ Follow the instructions in this section to setup a cluster to which you can push
 
 We'll need to install the hasura command line interface to use the hasura platform. To install use
 
-```
+```bash
 $ curl -L https://hasura.io/install.sh | bash
 ```
 
 To check if it successfully installed use
 
-```
+```bash
 $ hasura version
 
 
@@ -184,7 +184,7 @@ hasura version: v0.2.28
 
 Create an account or login to hasura using
 
-```
+```bash
 $ hasura login
 ```
 Your browser will open a link where you can register or login to hasura.
@@ -193,7 +193,7 @@ Your browser will open a link where you can register or login to hasura.
 
 To create a cluster you can use the hasura free tier system.
 
-```
+```bash
 $ hasura cluster create --type=free
 
 
@@ -210,7 +210,7 @@ Note your cluster name. In this case it is `alarming52`.
 
 To add a cluster to this project use the following commands.
 
-```
+```bash
 # Add cluster
 $ hasura cluster add alarming52 -c hasura
 
@@ -225,7 +225,7 @@ $ hasura ssh-key add -c hasura
 
 Follow the below steps.
 
-```
+```bash
 # Go to your project folder
 $ cd /home/user/projects/wit_integration
 
@@ -240,7 +240,7 @@ $ git push hasura master
 ```
 This will take some time to execute. After it is done use the following command to view your app.
 
-```
+```bash
 # To view the api microservice
 $ hasura microservice open api
 
@@ -259,7 +259,7 @@ This section shows how the wit.ai integration works.To see a working model visit
 
 You can also visit your own project's `app` microservice as it has the same application by default.
 
-```
+```bash
 hasura microservice open app
 ```
 
@@ -284,20 +284,23 @@ Enter some text in the input box to get the following data :
 Working examples:
 
 ### Greeting
-![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/gifs/greeting.gif)
+![greeting](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/gifs/greeting.gif)
 
 ### Get weather
-![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/gifs/weather.gif)
+![get_weather](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/gifs/weather.gif)
 
 ### Get tweets
-![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/gifs/twitter.gif)
+![get_tweets](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/gifs/twitter.gif)
 
 ### Exit
-![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/gifs/exit.gif)
+![exit](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/gifs/exit.gif)
 
+### Error
+If the bot can't understand your text
 
+![response_error](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/response_error.png)
 
->This application finds intent for a **chat bot to fetch news** however you can modify it for your own needs.
+>This application finds intent for a **chat bot to fetch news** however , you can modify it for your own needs.
 
 ## Using your own Wit API
 
@@ -311,19 +314,19 @@ Login to use the dashboard.
 
 The dashboard should appear something like this.
 
-![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/wit_home.png)
+![wit_home](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/wit_home.png)
 
 Click on the **+** icon to create a new app.
 
-![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/plus.png)
+![plus](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/plus.png)
 
 Enter the details and click **Create App**.
 
-![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/create_app.png)
+![create_app](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/create_app.png)
 
 Click on your app's name on the dashboard , you would see a page like this.
 
-![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/test_app.png)
+![test_app](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/test_app.png)
 
 You can train your app to find intents and key words. Read the [Wit documentation](https://wit.ai/docs) to know more about training your app.
 
@@ -331,11 +334,11 @@ You can train your app to find intents and key words. Read the [Wit documentatio
 
 Go to the settings of your wit application.
 
-![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/app_settings.png)
+![app_settings](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/app_settings.png)
 
 Copy the `Server Access Token`.
 
-![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/access_token.png)
+![access_token](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/access_token.png)
 
 In your `server.py` create an endpoint.
 
@@ -392,8 +395,7 @@ Add body of the request.
 
 See the response.
 
-![image](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/response_request.png)
-
+![response_request](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/response_request.png)
 
 ## Author
 

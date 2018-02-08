@@ -15,6 +15,60 @@ body {
   background-color: #fdf7ef;
   box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
+#github-container {
+  height: auto;
+  position: relative;
+  margin: 140px auto 0px auto;
+  width: fit-content;
+  bottom: 0px;
+}
+#github-container a {
+  display: inherit;
+  width: fit-content;
+}
+#github-thumbnail{
+  height: 50px;
+  width: auto;
+  margin: auto;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    font-family: 'Raleway',sans-serif;
+    font-size: 18px;
+    visibility: hidden;
+    width: 200px;
+    background-color: rgba(0,0,0,0.8);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 120%;
+    left: 50%;
+    margin-left: -100px;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.8) transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
 .Intro {
   text-align: center;
   margin: 0px auto;
@@ -104,6 +158,9 @@ body {
 }
 @media screen and (max-width: 768px){
     /* For mobile phones: */
+    .Wit {
+      height: 300px;
+    }
     .Header{
       float: none;
       font-size: 36px;
@@ -136,4 +193,11 @@ body {
     .inactive{
       margin-top: 15px;
     }
+    #github-container {
+      /* position: relative;
+      margin: 50px auto 0px auto;
+      right: auto;
+      width: fit-content; */
+      visibility: hidden;
+      }
 }
