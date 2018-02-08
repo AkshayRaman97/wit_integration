@@ -11,4 +11,4 @@ This microservices is written in python with the `flask` framework.Read more abo
 # `app`
 The web app frontend for the application.Allows a user to enter a text and get the response from the wit client.
 It serves a `react-js` application.
-Read more about this microservice [here](https://github.com/AkshayRaman97/wit_integration/blob/master/microservices/app/app/README.md).
+Read more about this microservice [here](https://github.com/AkshayRaman97/wit_integration/blob/master/microservices/app/app/README-ReactJS.md).
