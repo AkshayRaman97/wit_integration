@@ -1,12 +1,45 @@
-# hasura-wit.ai integration
+# Hasura - Wit.ai Integration
 
-[Wit.ai](https://wit.ai/) is a natural language processing tool which allows developers to create applications that can interact with users through text or speech. It is completely open source and free to use, visit the website to know more.
+**Wit.ai** is a natural language processing tool which allows developers to create applications that can interact with users through text or speech. It is completely open source and free to use, visit the [website](https://wit.ai/) to know more.
 
-## Setting up the project
+# Table of Contents
+
+- [Hasura - Wit.ai Integration](#hasura---witai-integration)
+- [Table of Contents](#table-of-contents)
+- [Setting up the project](#setting-up-the-project)
+  * [Cloning the project](#cloning-the-project)
+  * [Files and Directories](#files-and-directories)
+    + [Project structure](#project-structure)
+    + [`/microservices`](#--microservices-)
+    + [`/microservices/api`](#--microservices-api-)
+    + [`/microservices/app`](#--microservices-app-)
+- [Setting up your development environment](#setting-up-your-development-environment)
+  * [For Python devs (`api` microservice)](#for-python-devs---api--microservice-)
+  * [For React devs (`app` microservice)](#for-react-devs---app--microservice-)
+- [Setting up your hasura cluster](#setting-up-your-hasura-cluster)
+  * [Install `hasura-cli`.](#install--hasura-cli-)
+  * [Login to hasura](#login-to-hasura)
+  * [Create a cluster](#create-a-cluster)
+  * [Add cluster to your project](#add-cluster-to-your-project)
+  * [Pushing your code to the cluster](#pushing-your-code-to-the-cluster)
+- [Working of the application](#working-of-the-application)
+- [Working examples](#working-examples)
+  * [Greeting](#greeting)
+  * [Get weather](#get-weather)
+  * [Get tweets](#get-tweets)
+  * [Exit](#exit)
+  * [Error](#error)
+- [Using your own Wit API](#using-your-own-wit-api)
+  * [Create Wit.ai application](#create-witai-application)
+  * [Linking to your custom api.](#linking-to-your-custom-api)
+  * [Testing your API](#testing-your-api)
+- [Author](#author)
+
+# Setting up the project
 
 In order to use this repository as a base repository for your own project follow these steps.
 
-### Cloning the project
+## Cloning the project
 
 To clone the project to your system, you need to have `git` installed. To check if git is already installed use
 
@@ -31,15 +64,17 @@ $ git clone https://github.com/AkshayRaman97/wit_integration.git
 
 A folder `wit_integration` would be cloned to the current folder. If the cloning was done successfully proceed to the next section to know about the project structure.
 
-### Files and Directories
+## Files and Directories
+
+### Project structure
 
 Inside the `wit_integration` folder you will find a directory structure like this.
 
 ![file_directory](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/master_dir.png)
 
-> Most of the folders here are used by the `hasura` platform to host our projects on a cluster. They are not meant to be tampered with unless you really know what you're doing. The folders discussed below are the ones of our interest. However if you are interested to know more about the hasura project structure check out this [link](https://docs.hasura.io/0.15/manual/project/index.html).
+> *Most of the folders here are used by the `hasura` platform to host our projects on a cluster. They are not meant to be tampered with unless you really know what you're doing. The folders discussed below are the ones of our interest. However if you are interested to know more about the hasura project structure check out this [link](https://docs.hasura.io/0.15/manual/project/index.html).*
 
-#### `/microservices`
+### `/microservices`
 
 Folder structure :
 
@@ -47,7 +82,9 @@ Folder structure :
 
 Contains the custom microservices created by us. This project has 2 microservices `api` and `app` as shown above. Each microservice has a definite structure to be followed.
 
-#### `/microservices/api`
+### `/microservices/api`
+
+Folder structure:
 
 ![api_dir](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/api_dir.png)
 
@@ -62,7 +99,9 @@ References:
 
 
 
-#### `/microservices/app`
+### `/microservices/app`
+
+Folder structure :
 
 ![app_dir](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/app_dir.png)
 
@@ -73,12 +112,12 @@ References:
 * [React documentation](https://reactjs.org/docs/hello-world.html).
 * [hasura/hello-react](https://github.com/hasura/hello-react).
 
-### Setting up your development environment
+# Setting up your development environment
 
 There would be two kinds of devs working in this project , the `python-flask` and the `react-js` developers. Jump to the respective sections to know how to setup the environment.
 
 
-#### For Python devs (`api` microservice)
+## For Python devs (`api` microservice)
 
 First we need `pip` for installing necessary packages.
 
@@ -128,7 +167,7 @@ The app is running at [http://localhost:8080](http://localhost:8080). It runs on
 
 Edit the `server.py` file to create endpoints for your application.
 
-#### For React devs (`app` microservice)
+## For React devs (`app` microservice)
 
 First we need to install `node.js`.
 
@@ -158,12 +197,12 @@ The `npm start` command opens the application on a browser window. You can start
 
 > Be sure to add the node_modules file to your `.gitignore` file since it is a very large folder and it is a general practice to avoid it while pushing to a repository for efficient development.
 
-## Setting up your hasura cluster
+# Setting up your hasura cluster
 
 In order to host our project on the cloud for everyone to see we'll use the `hasura` platform.
 Follow the instructions in this section to setup a cluster to which you can push your project folder.
 
-### Install `hasura-cli`.
+## Install `hasura-cli`.
 
 We'll need to install the hasura command line interface to use the hasura platform. To install use
 
@@ -180,7 +219,7 @@ $ hasura version
 hasura version: v0.2.28
 ```
 
-### Login to hasura
+## Login to hasura
 
 Create an account or login to hasura using
 
@@ -189,7 +228,7 @@ $ hasura login
 ```
 Your browser will open a link where you can register or login to hasura.
 
-### Create a cluster
+## Create a cluster
 
 To create a cluster you can use the hasura free tier system.
 
@@ -206,7 +245,7 @@ INFO Kubernetes context has been added to this system  context=alarming52
 
 Note your cluster name. In this case it is `alarming52`.
 
-### Add cluster to your project
+## Add cluster to your project
 
 To add a cluster to this project use the following commands.
 
@@ -221,7 +260,7 @@ $ hasura cluster set-default hasura
 $ hasura ssh-key add -c hasura
 ```
 
-### Pushing your code to the cluster
+## Pushing your code to the cluster
 
 Follow the below steps.
 
@@ -252,7 +291,7 @@ Your application is now viewable to anyone with the link to your microservice.
 >For more info on managing clusters and hosting your project refer to the [hasura documentation](https://docs.hasura.io/0.15/manual/cluster/index.html).
 
 
-## Working of the application
+# Working of the application
 
 This section shows how the wit.ai integration works.To see a working model visit this link
 [app.bouquet44.hasura-app.io](https://app.bouquet44.hasura-app.io/).
@@ -260,7 +299,7 @@ This section shows how the wit.ai integration works.To see a working model visit
 You can also visit your own project's `app` microservice as it has the same application by default.
 
 ```bash
-hasura microservice open app
+$ hasura microservice open app
 ```
 
 You'll see this page.
@@ -281,32 +320,32 @@ Enter some text in the input box to get the following data :
 * `Date` - Could be *next sunday*, *tomorrow*, *today* ,*september 12th* etc.
 * `Time` - 5pm , 6am etc.
 
-Working examples:
+# Working examples:
 
-### Greeting
+## Greeting
 ![greeting](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/gifs/greeting.gif)
 
-### Get weather
+## Get weather
 ![get_weather](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/gifs/weather.gif)
 
-### Get tweets
+## Get tweets
 ![get_tweets](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/gifs/twitter.gif)
 
-### Exit
+## Exit
 ![exit](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/gifs/exit.gif)
 
-### Error
+## Error
 If the bot can't understand your text
 
 ![error](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/gifs/error.gif)
 
 >This application finds intent for a **chat bot to fetch news** however , you can modify it for your own needs.
 
-## Using your own Wit API
+# Using your own Wit API
 
 In order to modify the api to understand sentences suitable for your application follow this section.
 
-### Create Wit.ai application
+## Create Wit.ai application
 
 Visit the **Wit.ai** homepage.
 
@@ -330,7 +369,7 @@ Click on your app's name on the dashboard , you would see a page like this.
 
 You can train your app to find intents and key words. Read the [Wit documentation](https://wit.ai/docs) to know more about training your app.
 
-### Linking to your custom api.
+## Linking to your custom api.
 
 Go to the settings of your wit application.
 
@@ -371,7 +410,7 @@ def test():
     	return(jsonify({"message":"Some error occured"}))
 ```
 
-### Testing your API
+## Testing your API
 
 There are many API testing tools available , one of the popular ones is **Postman** .
 
@@ -397,9 +436,9 @@ See the response.
 
 ![response_request](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/response_request.png)
 
-## Author
+# Author
 
-* **Akshay Raman** - _Team 19_ - [Github Repository](https://github.com/AkshayRaman97)
+* **Akshay Raman** - _Team 19_ - [Github profile](https://github.com/AkshayRaman97)
 
 
 Hope your application is working as expected. If you run into any issues Google and StackOverflow are always there to help !

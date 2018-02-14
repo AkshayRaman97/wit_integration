@@ -1,16 +1,29 @@
-# Wit integration
+# Wit.ai integration
 
 This project is a basic integration of the open source Natural Language Processing tool `Wit.ai`.
-It should serve as a base repository for developers who wish to develop applications and chatbots using `wit` .
+It should serve as a base repository for developers who wish to develop applications and chatbots using wit.ai .
 Read more about wit and it's features [here](https://wit.ai).
 
+# Table of contents
+
+- [Wit integration](#wit-integration)
+- [Table of contents](#table-of-contents)
+- [Getting started](#getting-started)
+  * *[hasura-cli](#-hasura-cli-)*
+  * [Files and Directories](#files-and-directories)
+  * [Microservices](#-microservices-)
+    + [Create a microservice](#create-a-microservice)
+- [Custom microservices](#custom-microservices)
+  * **[app](#-app-)**
+  * **[api](#-api-)**
+- [Team](#team)
 
 # Getting started
 
 Follow these steps to get started with development using this project.
 
 
-### hasura-cli
+## `hasura-cli`
 In order to get started with development you have to install the `hasura cli`.To install copy this code to your `terminal` .
 ```
 $ curl -L https://hasura.io/install.sh | bash
@@ -27,7 +40,7 @@ $ git clone https://github.com/AkshayRaman97/wit_integration.git
 A clone of the project is created at your current location.The folder is named `wit_integration`.
 
 
-# Files and Directories
+## Files and Directories
 
 The project (a.k.a. project directory) has a particular directory structure and it has to be maintained strictly, else `hasura cli` would not work as expected. The project directory is shown below:
 
@@ -36,17 +49,17 @@ The project (a.k.a. project directory) has a particular directory structure and 
 ├── hasura.yaml
 ├── clusters.yaml
 ├── conf
-│   ├── authorized-keys.yaml
-│   ├── auth.yaml
-│   ├── ci.yaml
-│   ├── domains.yaml
-│   ├── filestore.yaml
-│   ├── gateway.yaml
-│   ├── http-directives.conf
-│   ├── notify.yaml
-│   ├── postgres.yaml
-│   ├── routes.yaml
-│   └── session-store.yaml
+│   ├── authorized-keys.yaml
+│   ├── auth.yaml
+│   ├── ci.yaml
+│   ├── domains.yaml
+│   ├── filestore.yaml
+│   ├── gateway.yaml
+│   ├── http-directives.conf
+│   ├── notify.yaml
+│   ├── postgres.yaml
+│   ├── routes.yaml
+│   └── session-store.yaml
 ├── migrations
 │   ├── 1504788327_create_table_userprofile.down.yaml
 │   ├── 1504788327_create_table_userprofile.down.sql
@@ -94,17 +107,25 @@ To create a microservice use the following commands:
 
 To know more read the [hasura docs](https://docs.hasura.io/0.15/manual/hasuractl/hasura_microservice.html#hasura-microservice).
 
-### Custom microservices
+# Custom microservices
 
 This project has 2 custom microservices.
 
-### `api`
+## `app`
+The web app frontend for the application.Allows a user to enter a text and get the response from the wit client.
+It serves a `react-js` application.
+Read more about this microservice [here](https://github.com/AkshayRaman97/wit_integration/blob/master/microservices/app/app/README-ReactJS.md).
 
+
+## `api`
 This custom microservice acts as the backend of the application.
 It exposes endpoints throught which the frontend can POST a text and recieve `intent` of the text as a response in `JSON` format.
 This microservices is written in python with the `flask` framework.Read more about it [here](https://github.com/AkshayRaman97/wit_integration/blob/master/microservices/api/README.md).
 
-### `app`
-The web app frontend for the application.Allows a user to enter a text and get the response from the wit client.
-It serves a `react-js` application.
-Read more about this microservice [here](https://github.com/AkshayRaman97/wit_integration/blob/master/microservices/app/app/README-ReactJS.md).
+# Team
+
+This project is developed by Team 19 of Hasura Product Development Fellowship
+
+**Authors :**
+* Akshay - *[Github profile]()*
+* Vikash - *[Github profile]()*

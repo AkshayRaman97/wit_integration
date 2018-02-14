@@ -1,28 +1,46 @@
-# `api`
-
+# API
 Python-Flask microservice backend for the wit_integration.
 
-## About the api
 
-The microservice is written in `python3.6` and uses `Flask` framework.
+# About
+The microservice is written in `python3.6` and uses the `Flask` framework.
+
+# Table of Contents
+
+- [API](#api)
+- [About](#about)
+- [Table of Contents](#table-of-contents)
+- [Endpoints](#endpoints)
+  * [`/intent`](#--intent-)
+    + [methods](#methods)
+    + [headers](#headers)
+    + [body](#body)
+    + [response](#response)
+    + [example](#example)
+- [Extras](#extras)
+
+# Endpoints
+
 The endpoints of this app are
 
-    ('/')       --> Displays the Readme of the microservice.
-    ('/intent') --> An endpoint which accepts a POST request containing the message
-                    and returns a JSON response containing the intent of the text.
-    ('/test')   --> A test endpoint used for demonstrating usage of Wit client
+    ('/')       [GET]   --> Displays the Readme of the microservice.
+    ('/intent') [POST]  --> An endpoint which accepts a POST request containing the message
+                    		and returns a JSON response containing the intent of the text.
+    ('/test')   [POST] --> A test endpoint used for demonstrating usage of Wit client
 
-### `/intent`
+This base project has only few endpoints but you can add as many as you require based on your application's requirement.
+
+## `/intent`
 
 Accepts POST request containing the message in the body.
 Link to this endpoint is here [/intent](https://api.bouquet44.hasura-app.io/intent).
 
-##### methods
+### methods
 
 * Accepts only POST requests.
 * A GET request would fail at this endpoint.
 
-##### headers
+### headers
 
 The request to this endpoint must have the following headers.
 
@@ -31,7 +49,7 @@ The request to this endpoint must have the following headers.
 
 Both headers indicate that the Body of the request is of `JSON format`.
 
-##### body
+### body
 
 * A javascript object which has a key `text` and a value for it.
 
@@ -41,7 +59,7 @@ Both headers indicate that the Body of the request is of `JSON format`.
   }
 ```
 
-##### response
+### response
 
 The response is a JSON object with the following data
 
@@ -57,7 +75,7 @@ The response is a JSON object with the following data
 * `Date` - Could be *next sunday*, *tomorrow*, *today* ,*september 12th* etc.
 * `Time` - 5pm , 6am etc.
 
-##### example
+### example
 
 A request with *Hello* as the text.
 
@@ -81,7 +99,7 @@ Returns the following
     }
 ```
 
-## Extras
+# Extras
 
 For further notes about things such as local and remote deployment of microservice please refer to the hasura boilerplate repository.
 
