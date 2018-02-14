@@ -11,7 +11,7 @@ class Wit extends React.Component {
       date:null,
       time:null,
       start:true,
-      waking:false,
+      loading:false,
     };
   }
   handleTextChange(e){
@@ -23,7 +23,8 @@ class Wit extends React.Component {
   }
   changeOutput(e){
     e.preventDefault();
-    setTimeout(() => {this.outputBox.className="outputContainer center inactive";},1000);
+    setTimeout(() => {this.outputBox.className="outputContainer center inactive";},500);
+    this.setState({loading:true});
     if(this.state.text.length){
       fetch('https://api.bouquet44.hasura-app.io/intent', {
       method: 'POST',
@@ -42,20 +43,30 @@ class Wit extends React.Component {
            time:output['time'],
            location:output['location'],
            start:false,
-           waking:false,
+           loading:false,
          });
          this.outputBox.className="outputContainer center active";
        }).catch(err => {
       console.error(err);
-      this.setState({
-        waking:true,
-      });
     });
   }
 }
   showOutput() {
       var intent,date,time,search_term,classes,location;
       classes = "outputbox center";
+      if(this.state.loading){
+        return(
+          <table className="outputbox center active">
+            <tbody>
+              <tr>
+                <td>
+                  <b>Loading ...</b>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        );
+      }
       if(this.state.intent && !this.state.start){
         intent = <tr><td><b className="bold">Intent</b></td><td>{this.state.intent}</td></tr>
         if(this.state.search_term){
@@ -73,10 +84,6 @@ class Wit extends React.Component {
       }
       else if(!this.state.start && !this.state.intent){
         intent = <tr><td>Could not find one</td></tr>
-        classes = "outputbox center alert";
-      }
-      else if(!this.state.start && this.state.waking){
-        intent = <tr><td>Please wait server is waking up</td></tr>
         classes = "outputbox center alert";
       }
       return(
