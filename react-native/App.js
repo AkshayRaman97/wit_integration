@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet,Text,View,Image, } from 'react-native';
+import { StyleSheet,Text,View,Image,Component } from 'react-native';
 import { StackNavigator } from 'react-navigation'
 import LoginScreen from  './Screens/LoginScreen'
 import HomeScreen from './Screens/HomeScreen'
+import vikash from './Screens/vikash'
 
 
 
@@ -27,7 +28,13 @@ navigationOptions:{
   HomeScreen: {screen: HomeScreen,
     navigationOptions:{
       headerTitle:'ChatBot',
-      
+
+    },
+  },
+  vikash: {screen: vikash,
+    navigationOptions:{
+      headerTitle:'vikash',
+
     },
   }
 })

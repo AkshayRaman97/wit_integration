@@ -32,7 +32,10 @@ style={{width:screenWidth,height:screenWidth *3100/3264,marginTop:20}}>
 
 
 <Button onPress={()=>this.props.navigation.navigate('HomeScreen')}
+
 title="Go to ChatBot"/>
+<Button onPress={()=>this.props.navigation.navigate('vikash')}
+title="go to vikash/">
 
 </View>
   );

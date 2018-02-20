@@ -9,7 +9,7 @@ import{
 
 }
 from "react-native";
-class HomeScreen extends Component{
+class vikash extends Component{
 
   render()
   {
@@ -43,4 +43,4 @@ const styles = StyleSheet.create({
     alignItems:"center"
   }
 });
-export default HomeScreen;
+export default vikash;
