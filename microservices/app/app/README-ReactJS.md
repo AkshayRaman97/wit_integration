@@ -2,15 +2,25 @@
 
 This microservice acts as the frontend for the **Wit.ai** - **Hasura** platform integration.
 
-The entire details of this project can be found here - [wit_integration]()
+The entire details of this project can be found here - [wit_integration](https://github.com/AkshayRaman97/wit_integration/blob/master/README.md)
 
 # Table of Contents
 
-- [**app** microservice](#-app--microservice)
+- [**app** microservice](#--app---microservice)
 - [Table of Contents](#table-of-contents)
 - [Setting up the project](#setting-up-the-project)
+  * [Cloning the project](#cloning-the-project)
+  * [Files and Directories](#files-and-directories)
+    + [Project structure](#project-structure)
+    + [`/microservices`](#--microservices-)
+    + [`/microservices/app`](#--microservices-app-)
 - [Setting up your microservice](#setting-up-your-microservice)
 - [Setting up your hasura cluster](#setting-up-your-hasura-cluster)
+  * [Install `hasura-cli`.](#install--hasura-cli-)
+  * [Login to hasura](#login-to-hasura)
+  * [Create a cluster](#create-a-cluster)
+  * [Add cluster to your project](#add-cluster-to-your-project)
+  * [Pushing your code to the cluster](#pushing-your-code-to-the-cluster)
 - [Working of the application](#working-of-the-application)
 - [Working examples:](#working-examples-)
   * [Greeting](#greeting)
@@ -23,7 +33,63 @@ The entire details of this project can be found here - [wit_integration]()
 
 # Setting up the project
 
-Follow this link to know about setting up this project - [wit_integration/Readme.md](https://github.com/AkshayRaman97/wit_integration/blob/master/README.md)
+In order to use this repository as a base repository for your own project follow these steps.
+
+## Cloning the project
+
+To clone the project to your system, you need to have `git` installed. To check if git is already installed use
+
+```bash
+$ git --version
+
+
+git version 2.14.1
+```
+If not installed follow the instructions in this link - [Git installation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+
+Open the terminal in your pc and navigate to your desired folder.
+Then clone the repository using `git clone`.
+
+```bash
+# Navigate to desired folder . Example: /user/project
+$ cd home/user/projects
+
+# Clone the repository
+$ git clone https://github.com/AkshayRaman97/wit_integration.git
+```
+
+A folder `wit_integration` would be cloned to the current folder. If the cloning was done successfully proceed to the next section to know about the project structure.
+
+## Files and Directories
+
+### Project structure
+
+Inside the `wit_integration` folder you will find a directory structure like this.
+
+![file_directory](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/master_dir.png)
+
+> *Most of the folders here are used by the `hasura` platform to host our projects on a cluster. They are not meant to be tampered with unless you really know what you're doing. The folders discussed below are the ones of our interest. However if you are interested to know more about the hasura project structure check out this [link](https://docs.hasura.io/0.15/manual/project/index.html).*
+
+### `/microservices`
+
+Folder structure :
+
+![ms_dir](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/ms_dir.png)
+
+Contains the custom microservices created by us. This project has 2 microservices `api` and `app` as shown above. Each microservice has a definite structure to be followed.
+
+### `/microservices/app`
+
+Folder structure :
+
+![app_dir](https://raw.githubusercontent.com/AkshayRaman97/wit_integration/master/assets/images/app_dir.png)
+
+The frontend of the project. Uses the `react-js` javascript framework. Edit the `App.js` file to get started.
+
+References:
+
+* [React documentation](https://reactjs.org/docs/hello-world.html).
+* [hasura/hello-react](https://github.com/hasura/hello-react).
 
 # Setting up your microservice
 
@@ -56,8 +122,97 @@ The `npm start` command opens the application on a browser window. You can start
 > Be sure to add the node_modules file to your `.gitignore` file since it is a very large folder and it is a general practice to avoid it while pushing to a repository for efficient development.
 
 # Setting up your hasura cluster
+In order to host our project on the cloud for everyone to see we'll use the `hasura` platform.
+Follow the instructions in this section to setup a cluster to which you can push your project folder.
 
-Follow this link to know about setting up a cluster for this project - [wit_integration/Readme.md](https://github.com/AkshayRaman97/wit_integration/blob/master/README.md)
+## Install `hasura-cli`.
+
+We'll need to install the hasura command line interface to use the hasura platform. To install use
+
+```bash
+$ curl -L https://hasura.io/install.sh | bash
+```
+
+To check if it successfully installed use
+
+```bash
+$ hasura version
+
+
+hasura version: v0.2.28
+```
+
+## Login to hasura
+
+Create an account or login to hasura using
+
+```bash
+$ hasura login
+```
+Your browser will open a link where you can register or login to hasura.
+
+## Create a cluster
+
+To create a cluster you can use the hasura free tier system.
+
+```bash
+$ hasura cluster create --type=free
+
+
+INFO Creating a Hasura cluster...
+INFO Hasura cluster created                        cluster=alarming52
+INFO Initializing the cluster...
+INFO Cluster initialized
+INFO Kubernetes context has been added to this system  context=alarming52
+```
+
+Note your cluster name. In this case it is `alarming52`.
+
+## Add cluster to your project
+
+To add a cluster to this project use the following commands.
+
+```bash
+# Add cluster
+$ hasura cluster add alarming52 -c hasura
+
+# Set this cluster as the default
+$ hasura cluster set-default hasura
+
+# Add ssh-key
+$ hasura ssh-key add -c hasura
+```
+
+## Pushing your code to the cluster
+
+Follow the below steps.
+
+```bash
+# Go to your project folder
+$ cd /home/user/projects/wit_integration
+
+# Add all files for commit
+$ git add .
+
+# Commit files
+$ git commit -m "First commit"
+
+# Push to hasura cluster
+$ git push hasura master
+```
+This will take some time to execute. After it is done use the following command to view your app.
+
+```bash
+# To view the api microservice
+$ hasura microservice open api
+
+# To view the app microservice
+$ hasura microservice open app
+```
+Your application is now viewable to anyone with the link to your microservice.
+
+>For more info on managing clusters and hosting your project refer to the [hasura documentation](https://docs.hasura.io/0.15/manual/cluster/index.html).
+
 
 # Working of the application
 
