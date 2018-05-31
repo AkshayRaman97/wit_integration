@@ -1,5 +1,7 @@
 # Hasura - Wit.ai Integration
 
+Github pages link for this project - [https://akshayraman97.github.io/wit_integration/](https://akshayraman97.github.io/wit_integration/) .
+
 **Wit.ai** is a natural language processing tool which allows developers to create applications that can interact with users through text or speech. It is completely open source and free to use, visit the [website](https://wit.ai/) to know more.
 
 # Table of Contents
